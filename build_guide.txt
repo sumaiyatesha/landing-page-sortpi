@@ -1,0 +1,289 @@
+SortPi Landing Page Antigravity Build Guide
+
+A detailed design and implementation prompt for a customer focused POS website
+
+Prepared 27 October 2026 for GeekSSort. This guide replaces the earlier build prompt with a complete creative direction and sequential implementation prompts. It covers the landing page, demo conversion flow, contact experience, content rules and release checks.
+
+How to use this guide
+
+Save the supplied document and three images inside your Antigravity project under /reference. Name the images cta-reference.png, form-reference.png and contact-reference.png in their original order. Add real SortPi logos, product screenshots and approved customer assets under /public/assets. Open the existing website repository if available.
+
+Paste Prompt 1 first. Then paste Prompts 2 through 10 in order, allowing each step to finish before continuing. Give Antigravity this entire guide as a reference file so later content requirements remain available. The prompts are implementation instructions, not marketing copy to display on the website. No separate Stitch output is required.
+
+Research and design decisions
+
+ChillyPOS
+
+The homepage focuses on restaurant buyers, displays many named customers, explains product workflows, presents subscription plans and ends with an enquiry form. Its useful lesson is making the business context and customer proof visible. SortPi should use selective proof and understandable product demonstrations without adopting restaurant-only positioning, competitor performance claims or a long repeated customer wall. These are design recommendations, not measured conversion findings. Source: https://chillypos.com/ accessed 27 October 2026.
+
+Mediasoft
+
+The homepage combines broad industry navigation, demo and contact actions, customer logos, industry solutions and video testimonials. Its useful lesson is helping buyers identify their business type and reach a sales conversation. SortPi should offer a smaller set of relevant choices and simpler navigation rather than reproduce an extensive product directory. Competitor experience, customer counts and support claims must not transfer to SortPi. Source: https://mediasoftbd.com/ accessed 27 October 2026.
+
+The three supplied images
+
+Image 1 establishes the CTA hierarchy: a prominent blue Request Free Demo button and a dark navy Contact Us button. Apply these labels consistently across the new landing page. Replace competing hero trial buttons while preserving existing signup routes.
+
+Image 2 contributes generous form spacing, readable input groups and a calm starting point. Adapt that pattern into a short demo request, not an account signup. Do not copy its handwritten heading, purple button, app selector or unnecessary qualification fields. A demo request must not imply instant account creation.
+
+Image 3 contributes a split contact introduction, supportive illustration and separate contact cards. Create an original SortPi composition with a product themed visual. Do not reuse Mediasoft artwork, office addresses, phone numbers or support hours.
+
+What changes from the original prompt
+
+The new prompt retains customer focus, every supplied core module, plan limits, existing routes, bilingual structure, accessibility, validation, SEO and performance checks. It resolves the inconsistent Book a demo, Start free trial, Try for free and Get started labels. Request Free Demo becomes the landing page conversion action; Contact Us is the secondary action.
+
+Mandatory logo marquees, floating five star reviews, repeated statistics and video carousels become conditional on real assets. The first build uses clean product demonstrations when customer evidence is missing. Yearly pricing is hidden until approved. Stitch becomes optional inspiration. Implementation proceeds through clear stages rather than stopping for approval after every routine choice.
+
+Prompt 1 Establish the brief and project foundation
+
+Act as a senior product designer, conversion focused UX designer and frontend engineer. Build a distinctive SortPi marketing website for shop owners in Bangladesh. The site must explain daily business benefits, demonstrate the software clearly and generate qualified demo requests. It must feel like a carefully designed software product, with customer context and practical workflows throughout.
+
+Read this full guide, the original SortPi document and all three reference images before implementation. Inspect the repository, existing design tokens, framework, routing, forms, CMS and assets. Identify what already works. Preserve existing business logic, authentication, blog URLs and application routes. Do not migrate frameworks for cosmetic reasons.
+
+Use this precedence: current explicit requirements and supplied image direction; existing verified product configuration; the factual content in this guide; original document; competitor inspiration. If pricing conflicts, report the conflict in the implementation notes instead of silently selecting a new value. Never use competitor content as evidence of SortPi capabilities.
+
+Create a brief implementation plan, route inventory, component map and content coverage checklist, then proceed with reversible local implementation. Only stop when an essential missing fact prevents a working integration. Keep independent design and frontend work moving. Do not publish, purchase services or send real test leads without explicit authorization.
+
+For an empty project, use Next.js App Router, TypeScript and Tailwind CSS. For an existing project, follow its conventions and supported dependencies. Keep interactive islands small. Use CSS for routine transitions. Explain any added dependency in the build notes. Do not add a large animation library just for entrance effects.
+
+Create typed content modules for site settings, navigation, features, industries, pricing, FAQs, testimonials, contact and translations. Separate sample dashboard fixtures from published product facts. Keep design tokens centralized. Suggested components: SiteHeader, Hero, CustomerProof, ProblemSolution, WorkflowExplorer, IndustrySelector, FeatureOverview, OwnerDashboard, SetupSteps, Pricing, CustomerStory, FAQ, BlogPreview, DemoSection, ContactSection and SiteFooter.
+
+Preserve /signup, /signup?plan=starter, /signup?plan=standard, /signup?plan=business, /contact, /blog and existing /blog/[slug] routes. Inventory actual blog paths before editing. New demo CTAs lead to /#demo; Contact Us leads to /contact. Use root aware links from other routes.
+
+Completion evidence: show the route map, design direction, missing asset inventory and proposed component hierarchy. Confirm how existing application behavior remains intact. Do not claim a build passes before running it.
+
+Prompt 2 Create the visual system
+
+Design concept: a clear view of the whole shop. Connect the shop floor with the owner's view through a recurring receipt, stock movement and dashboard motif. This is a visual story about one sale becoming useful business information. Avoid generic abstract technology graphics.
+
+Use the existing approved SortPi brand color if available. Otherwise use this proposed palette from the CTA reference: primary #2563EB, hover #1D4ED8, ink #0F172A, body #475569, canvas #FFFFFF, soft surface #F6F8FC, border #E2E8F0. Reserve teal #0AC79E for subtle decorative accents and positive states with darker accessible text. Do not claim these are official brand tokens. Measure contrast for the final combinations.
+
+Use Inter or the existing brand sans serif for English. Use Noto Sans Bengali for Bangla where available. Limit font weights to what the page needs. Set desktop H1 around 60px with 1.05 to 1.12 line height; mobile around 36px. Set section headings around 36 to 42px on desktop and 28 to 32px on mobile. Use 16 to 18px body text with approximately 1.6 line height. Never solve overflow by making essential text tiny.
+
+Use a 1200px maximum content width, 24 to 32px desktop gutters and 20px mobile gutters. Base spacing on 8px increments. Give major sections 88 to 112px vertical padding on desktop and 56 to 72px on mobile. Use 16 to 24px card radii, restrained borders and soft shadows only where elevation explains hierarchy. Inputs and buttons should be at least 48px tall.
+
+Build three distinct layout families: an editorial split for hero and contact, a product workspace for demonstrations, and concise comparison structures for pricing and features. Alternate white and pale surfaces. Use one navy owner dashboard section as a deliberate contrast moment. Avoid making every section the same three card grid.
+
+Primary buttons: blue background, white label Request Free Demo, optional small diagonal arrow. Secondary buttons: navy background, white label Contact Us, optional right arrow. Keep arrows decorative to assistive technology. On dark sections, use an accessible contrasting secondary treatment. Never place two equally prominent primary actions beside each other.
+
+Use icons from one consistent set, around 20 to 24px, with matching stroke weights. Decorative dots may appear faintly behind contact content, inspired by image 3. Do not put patterns beneath dense copy or form controls. Do not add floating decorative objects without a clear role.
+
+Motion: 160 to 220ms for buttons and tabs, gentle 240ms reveals when appropriate. Content must remain visible if JavaScript fails. Respect reduced motion. No scroll hijacking, forced horizontal page scrolling, autoplay video, spinning gradients, custom cursor or excessive parallax.
+
+Create a small component preview with buttons, headings, input states, cards, tabs and alert messages before composing the page. Check keyboard focus and contrast now. Deliver the token definitions and a screenshot of this preview as implementation evidence.
+
+Prompt 3 Build the header hero and early customer proof
+
+Create a sticky 72px desktop header and approximately 64px mobile header. Use a white surface, subtle bottom border and minimal shadow after scrolling. Show logo, Features, Solutions, Customers, Pricing and Blog. Contact Us and Request Free Demo occupy the action area. Hide Customers navigation when there is no approved customer content. Mobile uses a labelled menu button and a focus managed drawer; Escape closes it and restores focus.
+
+Use one H1: Sell smoothly. Keep your whole shop in view.
+
+Use eyebrow: POS and business management for Bangladesh.
+
+Use supporting copy: Bring sales, stock, customer dues, expenses and staff records together with SortPi. Manage one shop or multiple branches from one place.
+
+Use the two exact CTA labels from image 1. Place a quiet factual line below: Built by GeekSSort. Avoid invented customer counts, ratings and response guarantees.
+
+Desktop hero layout: approximately 44 percent copy and 56 percent visual. Keep the headline to two or three intentional lines. On the right, use a real cashier or shop owner photo when an approved asset exists, integrated with a large legible SortPi screen. Otherwise use an original HTML product illustration without a fabricated person. A small receipt and stock update overlay may sit beside the main screen, but never hide important interface details.
+
+Use a tiny visible Sample data label on reconstructed UI. Do not present a reconstruction as an exact screenshot of the live app. Maintain a small aspect consistent device frame, not a heavy laptop bevel. Keep the main screen upright with only subtle perspective on decorative supporting layers.
+
+Hero sample fixture: Rice 5kg, quantity 1 at BDT 420; Soybean oil 1L, quantity 2 at BDT 180; Tea 200g, quantity 1 at BDT 120. Subtotal and total are BDT 900. Paid BDT 900, due BDT 0, discount BDT 0. Do not show VAT unless an approved tax configuration exists. Stock for these items changes from 18 to 17, 26 to 24 and 12 to 11. The example is illustrative pricing, not a real price list.
+
+On mobile, place copy and CTAs first, then a focused screen crop showing the cart and total. Do not shrink a complete desktop dashboard to unreadable size. Place overlays in normal flow where necessary. The primary action should be reachable early without forced viewport height tricks.
+
+Below the hero, render an approved customer logo row if assets exist. Maximum six to eight distinct logos in the first view. Prefer a static responsive row over an endless marquee. If motion is introduced later, provide pause controls and reduced motion behavior. Use authentic names and permission states in content data.
+
+Without approved customer proof, replace the logo row with three factual capability anchors: Sales and billing; Stock and purchases; Reports and branch visibility. Do not label these as customer proof. Do not render empty logo frames, fake stars or anonymous invented quotes. Keep approved proof near the top, within the main story and near the final CTA when sufficient distinct evidence exists.
+
+Completion evidence: render 390px and 1440px screenshots. Verify headline readability, CTA visibility, honest proof states and exact sample arithmetic.
+
+Prompt 4 Build the product story and industry selection
+
+Create a compact problem and answer section headed Less chasing records. More control over the day. Pair four problems with outcomes: separate sales and stock records become connected transactions; uncertain dues become customer balances; unclear spending becomes income and expense visibility; branch phone calls become branch level reporting. Use short horizontal rows or an asymmetric layout instead of four generic stock icons.
+
+Build the signature WorkflowExplorer headed See what happens after every sale. Four numbered controls select Sell, Update stock, Track dues and Review reports. The main screen changes to match the selected task. Keep the panel height stable. Use accessible tab roles, arrow key navigation and visible active states. Do not auto advance.
+
+Sell shows the BDT 900 sample cart. Update stock shows the exact three inventory movements. Track dues uses the same sale in a clearly labelled alternative payment example: paid BDT 700, due BDT 200. Review reports reflects only the selected example, with consistent totals. Reset restores the full payment scenario. Explain that these are interactive sample screens, not access to a real merchant account.
+
+Use a thin visual connector between the selected control and relevant screen region on desktop. On mobile, show the controls above the panel with short labels. The complete content must remain accessible without hover. Do not implement a pretend scanner, real checkout or payment gateway in this marketing demonstration.
+
+Create an industry selector headed Built around the way your business sells. Use six choices: Retail shops; Super shops and grocery; Restaurants; Pharmacies; Wholesale; Multi branch businesses. Selection changes a short use case, three applicable capabilities and a relevant sample screen. Keep all choices visible without relying on color alone.
+
+Retail: sales, customer purchase history, dues. Super shops and grocery: product stock, purchases, low stock visibility. Restaurants: general billing, expenses and reports only. Pharmacies: general product stock and sales only. Wholesale: supplier purchases, customer dues and sales records. Multi branch: separate stock and sales, branch reports and configured transfers.
+
+Do not imply KOT, table management, medicine expiry, batch tracking, regulated compliance, weighing scale support or offline operation. Those remain unconfirmed. Industry headings are use case navigation, not claims of specialized capabilities.
+
+Use one module link beneath this section to focus #features. A chosen industry can preselect Business type in the demo form, but it must remain editable. Announce content updates accessibly without repeatedly moving keyboard focus.
+
+Prompt 5 Build the feature overview owner view and setup journey
+
+Create #features with heading Everything your shop needs to stay organised. Include every core module below. Give Sales and billing and Inventory the two larger visual panels. Use compact rows or smaller panels for the rest. Each item needs a concrete outcome and, where useful, a miniature UI detail rather than decorative artwork.
+
+Sales and billing: sales, returns, recorded cash, card and mobile wallet payment methods, and customer dues. Show bKash and Nagad as payment method records only; do not imply automatic settlement or gateway integration.
+
+Inventory: product management, stock updates after sales and purchases, low stock warnings and branch stock transfers where configured.
+
+Purchases and suppliers: purchase records and supplier dues.
+
+Customers and dues: purchase history, purchase frequency, spending and outstanding balances.
+
+Expenses and accounts: income, expenses, cash flow, net profit, cash in hand and payment history. Describe visibility, not an audit guarantee.
+
+Reports: sales, profit, stock, purchases, expenses and staff reports by day, month or branch; print or download.
+
+HR and payroll: retain this module without adding unsupported attendance devices or payroll rules.
+
+Multi branch control: separate stock, sales and staff for each branch, with individual and combined views.
+
+Users and access: team accounts and role based access.
+
+Dashboard and device access: sales due, net profit, expenses, purchase due, low stock products, stock alerts and daily target; access across supported device layouts.
+
+Create a dark navy owner view headed Know what needs your attention. Show a clean sample dashboard with an understated branch selector. Highlight Sales, Customer dues and Low stock. Reveal one meaningful callout when a metric is selected. Use consistent sample data and label it. Avoid presenting high numbers as customer results.
+
+Keep full module detail discoverable through a See all features disclosure if needed. Collapsed information must be accessible and keyboard operable. Essential claims must exist as HTML, not inside screenshots only. Do not bury the entire feature set behind animation.
+
+Create #how-it-works with five steps: Set up your business; Add products and inventory; Configure access and workflows; Start selling and tracking; Review reports and improve. Use a horizontal sequence on desktop and a vertical numbered list on mobile. Support copy: Start with your daily workflow, then bring the rest of your operation together.
+
+A setup help link may lead to /contact. Do not promise instant migration, setup within a fixed time or free training unless approved. Replace the old numerical results strip with operational outcomes unless verified customer measurements become available.
+
+Prompt 6 Build pricing customer stories FAQs and resources
+
+Build #pricing with heading Choose a plan for the way you run your business. Use three aligned cards with clearly separated price, limits, included modules and action. Keep monthly pricing only. Do not invent yearly discounts, setup fees, VAT inclusions or trial duration.
+
+Starter: BDT 999 per month; one branch; up to 5 users; up to 2,000 products; point of sale and inventory; sales reports.
+
+Standard: BDT 2,999 per month; up to 3 branches; up to 15 users; up to 20,000 products; branch stock transfers; HR and payroll; full reports. Use the supplied badge Most Recommended. Give this card a restrained blue border and subtle tinted header, not an aggressive scale effect.
+
+Business: BDT 5,999 per month; up to 10 branches; up to 50 users; unlimited products; HR and payroll; full reports. Do not infer transfer entitlement or unstated plan inheritance. Keep unresolved entitlements in implementation notes and omit them from the public comparison until confirmed.
+
+Each pricing card uses Request Free Demo and passes its plan as hidden form context. The form displays an editable chosen plan summary. Below pricing, use Contact Us for More than 10 branches. Existing signup URLs and plan query values must continue working, but the new landing page does not need another prominent trial action.
+
+Build a compact comparison table from the same plan data. Compare branches, users, products and explicitly confirmed modules. Use included, not included and not specified states accurately; a missing entry is not proof of exclusion. Omit unclear rows in public output rather than show administrative notes. At small widths use a plan selector with readable comparison rows, not a tiny three column table.
+
+Create a customer story section only when approved content exists. The supplied draft quote is attributed to Salman Atik, owner of a super shop: “SortPi brings our sales, inventory and daily operations together, helping us stay organized and manage our business more efficiently.” Keep permission false until confirmed. Do not invent the shop name, portrait, stars, before and after numbers or video. With one approved quote, use a single editorial quote layout; a carousel is unnecessary. With three or more stories, add filters and manual controls.
+
+FAQ content must preserve the original eight topics and core meaning. Display these exact English questions and answers:
+
+What is SortPi? SortPi is an all-in-one business management platform that helps you manage sales, inventory, finances and daily operations.
+
+What types of businesses can use it? Retail shops, super shops, grocery stores, restaurants, pharmacies, wholesalers and other businesses can use SortPi for supported workflows.
+
+What features does it offer? SortPi brings POS, inventory, stock transfers, purchases, suppliers, customers, dues, expenses, accounts, HR, payroll and reports together.
+
+Can I manage multiple branches? Yes. Keep branch stock, sales and staff separate, review branches together or individually, and transfer stock where your plan supports it.
+
+Can it help me track sales and expenses? Yes. Record sales, returns, purchases and expenses, then review profit, dues and cash in hand from your business records.
+
+Can I track inventory in real time? Stock updates as sales and purchases are recorded. Low stock warnings help you identify products that need attention.
+
+Does it provide business reports? Yes. Review sales, profit, stock, purchase, expense and staff reports by day, month or branch, with print or download options.
+
+How can I get started? Request a free demo to discuss your business. You can also create an account, add your business and products, and start using the available trial without a card.
+
+Trial wording is carried from the supplied document; recheck the actual signup flow before release. Do not add promises about duration. Use a semantic accessible accordion. The first answer can be expanded initially. Do not insert unanswered offline, hardware, security or Bangla product questions as sales claims.
+
+Show up to three real blog posts from the existing CMS. Preserve article links, title, date and cover. Missing blog credentials must not produce fabricated published articles. Hide the preview if no real content is available; preserve the /blog route and navigation.
+
+Build one shared footer with Product, Company, Legal and Contact columns. Product links target actual section anchors; Company links use verified GeekSSort, Contact and Blog destinations. Render approved privacy, terms and social links only. Replace the unrelated old tagline with Sales, stock and business clarity in one place. Keep contact details consistent with Prompt 7. Use a spacious white footer with navy text, a fine top divider and the current copyright year. Never duplicate it for desktop and mobile.
+
+Prompt 7 Build the demo and contact experiences
+
+Build #demo using the spacing discipline of image 2 and the split composition of image 3. Desktop: concise explanation on the left and a form on the right. Mobile: explanation first, form second. Heading: See how SortPi fits your shop. Supporting copy: Tell us a little about your business. Our team will help you explore the workflows that matter to you.
+
+Show a small Point of Sale and Business Management descriptor above the form, without an app switching control. Required fields: Full name, Phone number, Business name and Business type. Optional fields: Number of branches and Email. Use real visible labels, appropriate autocomplete, a telephone keyboard and clear required indicators. Branch count can use 1, 2 to 3, 4 to 10 and More than 10. Add an optional collapsed note field only if the team needs extra context.
+
+Use two columns for compatible short fields on desktop and one column on mobile. Do not ask for country, language, company size and primary interest merely because the reference contains them. Keep persistent field labels above values. Submit button: Request Free Demo. Do not use Start Now or promise instant access on a demo form.
+
+Use quiet privacy copy stating that the details are used to respond to the enquiry. Link a real privacy page. Do not create false agreement text or link to a blank policy. If policy text is missing, record a release blocker in the private readiness report and keep previews nonpublic.
+
+Build or adapt /contact with heading Let’s talk about your business. Supporting copy: Have a question about features, pricing or your shop’s workflow? Talk to the SortPi team. Use original line artwork suggesting a shop screen and a conversation, or approved team photography. No copied Mediasoft illustration.
+
+Provide a primary Request Free Demo link to /#demo. Show clearly labelled contact methods rather than another competing hero button pair. Contact details supplied in the source: contact@sortpi.com and +8801341869125. Use mailto:contact@sortpi.com and tel:+8801341869125. Confirm these links and ownership before production release. Do not assume the phone is WhatsApp enabled.
+
+Use two contact cards for phone and email. Add office location and opening hours only when SortPi details are approved. Do not use competitor addresses. A contact enquiry form can reuse the demo form component with intent=contact and a required Message field, but its submit label should accurately say Send enquiry. This utility label does not replace the two global marketing CTA labels.
+
+Mobile may have a compact bottom action bar with Request Free Demo and Contact Us after the hero scrolls out. Hide it when the form is visible, the menu is open or an input has focus. Add safe area padding and reserve document space so the bar never covers content. Disable if testing shows interference with small screens or zoom.
+
+Completion evidence: show empty, invalid, submitting, successful and failed form states, with retained values after failures. Success must reflect a real accepted request, not an animation timer.
+
+Prompt 8 Implement reliable interactions and bilingual content
+
+Implement POST /api/demo-request or use the established backend contract. Validate all fields on both client and server. Normalize Bangladeshi phone input by removing formatting and converting local numbers to +880 format. Accept local ^01[3-9][0-9]{8}$ or international ^\+8801[3-9][0-9]{8}$. If supporting Bengali digits, normalize them before validation. Test valid, invalid and empty values.
+
+Forward validated requests to a server configured DEMO_WEBHOOK_URL. Never accept a destination URL from user input. Keep secrets server side. Set timeouts, inspect upstream status and prevent duplicate submissions through idempotency keys. Use a hidden honeypot and a production suitable shared rate limiter; an in memory limiter is development only on distributed hosting.
+
+When the webhook is missing in development, return an explicit preview mode response without claiming delivery. In production, return a safe error and provide phone and email alternatives. Avoid logging names, phone numbers and messages by default. Do not expose upstream errors or credentials. Provide .env.example with variable names and setup guidance only.
+
+Success text: Your request has been received. The SortPi team will contact you using the details you provided. Failure text: We could not send your request. Please try again or contact us directly. Announce errors and success using an appropriate live region. Move focus to an error summary when needed. Retain entered values on failure.
+
+Internationalization applies to the marketing site only. Do not imply the POS application or printed receipts support Bangla. Use an existing locale system if present; otherwise create a complete en and bn dictionary. Translate navigation, body copy, form labels, validation, selected states, FAQs, metadata and accessibility labels. Mark translations requiring review in private content metadata, not in visitor facing text.
+
+Persist locale choice in a cookie compatible with server rendering and update html lang. Prevent hydration mismatch and English flashes after selecting Bangla. Allow longer copy and proper Bengali line height. Use human review before public launch. Do not introduce /bn routes casually if the existing routing strategy uses a language preference instead.
+
+Create a small analytics adapter with typed events: demo_cta_click, contact_cta_click, pricing_plan_selected, industry_selected, workflow_step_selected, demo_form_submit, demo_form_success, demo_form_error, language_change and video_play when applicable. Preserve old analytics event mappings only if existing reporting needs them. Include section and plan as safe properties; never include names, numbers, email or message contents.
+
+No external analytics calls unless a real provider is configured and the site's consent requirements are handled. A public analytics ID is an identifier, not authorization to invent a provider integration. Keep the unconfigured adapter as a documented no-op.
+
+Prompt 9 Add search metadata performance and release safeguards
+
+Use one H1 and descriptive H2/H3 headings. Keep all important copy server rendered or available in initial HTML. Suggested SEO title: POS Software in Bangladesh for Shops | SortPi. Suggested description: Manage sales, stock, customer dues, expenses and multiple branches with SortPi POS software in Bangladesh. Request a free demo for your business.
+
+Use the canonical https://www.sortpi.com/ if consistent with the production deployment. Preserve existing canonical and redirect strategy when already valid. Create an actual branded OG image using approved assets or clean HTML/SVG rendering; do not leave /og.png pointing to a missing asset. Provide Open Graph and Twitter large image metadata. Preserve blog sitemap entries and production robots rules. Preview deployments should be noindex.
+
+Add accurate Organization and SoftwareApplication structured data only where fields have evidence. Use BDT for confirmed monthly offers. Do not add ratings, review counts, certifications, tax details or yearly pricing. FAQ markup may mirror visible FAQ content when appropriate, but do not promise a Google FAQ rich result. Do not invent a final production URL for a preview environment.
+
+Target mobile Lighthouse Performance 90+, Accessibility 95+, Best Practices 95+ and SEO 95+. These are acceptance targets, not scores to prefill. Aim for LCP below 2.5 seconds, CLS below 0.1 and responsive interactions. Report test environment and measured results; real user performance requires field data after launch.
+
+Use optimized images with explicit dimensions and accurate responsive sizes. Prioritize only the actual LCP image. Lazy load below fold photography and video embeds. Load video only after user activation. Use supported framework image and font tools. Preserve meaningful alt text and empty alt for purely decorative layers.
+
+Keep main page animation lightweight. Avoid giant background videos, unnecessary trackers and whole page client rendering. Split noncritical interactive features. Use stable panel geometry for tabs and font fallback metrics where feasible. Do not remove core functionality merely to reach a score.
+
+Build a content validator that checks rendered production content and required configuration. Gate customer assets with permission status, specialized features with confirmed flags and proof metrics with source references. Hide optional unavailable sections entirely, including their navigation links. Keep their pending items in a private checklist. Fail release when visible placeholders, broken required links or essential form configuration remain unresolved.
+
+Allow preview mode for development only, with clearly labelled sample interfaces. Do not rely solely on searching for the string PLACEHOLDER; validate missing keys and approval flags. Block a production publish command from bypassing these gates through an accidental preview environment flag.
+
+Prompt 10 Audit refine and hand over
+
+Run the available type check, lint, build and focused interaction tests after integration. Fix failures. Do not repeatedly rebuild unchanged code after every small spacing adjustment. Report exact commands and results, including tools that could not run.
+
+Check widths 360, 390, 768, 1024 and 1440px, plus 200 percent browser zoom. Capture full page screenshots at 390, 768 and 1440px. Review every section for overflow, clipping, awkward wrapping, tiny screens, excessive whitespace and repetitive layouts. Compare against the principles of the three images, not a pixel copy of them.
+
+Use a five second clarity test: can a viewer identify the product, intended buyer, key benefit and next action? Review hero balance, product legibility, primary action prominence and section pacing. Replace generic visual filler with meaningful interface detail. Keep one strong visual focal point per section.
+
+Test header and mobile drawer, all anchor destinations, industry selection, workflow tabs and reset, pricing plan context, FAQs, locale persistence, contact links and every available media control. Keyboard test focus order, Escape behavior, focus return, tab navigation and live error announcements. Run an accessibility checker and inspect contrast manually where necessary.
+
+Test the form with an approved mock endpoint: valid local and international phones, invalid phone, empty required fields, duplicate submit, honeypot, rate limit, timeout, upstream error and successful acceptance. Verify no PII appears in analytics events. Do not send real customer or test messages to the live sales endpoint without authorization.
+
+Check sample arithmetic, module coverage, plan values and route preservation. Verify that displayed monthly limits match the content model and original source. Test existing signup plan links as routes even though the new CTA goes to the demo form. Check blog links and genuine legal destinations. Avoid placeholder href values; real in page anchors are valid and should not be falsely flagged.
+
+Run Lighthouse on the production build in a documented environment. Separate automated scores from manual checks. Record before and after measurements when performance changes are made. Never claim WCAG conformance based only on an automated score.
+
+Deliver working code; typed content; design tokens; asset inventory; README; .env.example; source and permission notes; translation review list; missing input checklist; screenshots; test report; and a release decision. Give each requirement a status of passed, failed, not run or awaiting supplied input. Keep customer facing copy free of internal build notes. Do not deploy automatically.
+
+Product facts and release dependencies
+
+Facts carried from the supplied document
+
+SortPi is a cloud POS and business management platform for shops in Bangladesh, built by GeekSSort. Its source document lists retail, super shops, grocery, restaurants, pharmacies, wholesalers and multi branch businesses. Module and pricing details in Prompts 5 and 6 are carried from that document. The live SortPi site could not be retrieved during this review, so these are source document facts rather than a fresh production verification.
+
+Features that must remain gated
+
+Offline mode; Bangla application interface and receipts; barcode scanner and receipt printer compatibility; automatic bKash or Nagad integration; Excel import; discounts and loyalty; VAT reports; restaurant KOT and tables; pharmacy batch and expiry tracking; weight based billing; SMS or WhatsApp receipts; a dedicated owner mobile app; backup schedules and specific security guarantees. Store each as confirmed=false until approved evidence changes its state.
+
+Inputs needed before public release
+
+Approved logo and brand tokens; authentic product screenshots; customer assets and permissions if proof sections will appear; approved plan entitlements and trial terms; production form destination; privacy and terms pages; confirmed contact details; approved social URLs; Bengali review; verified security and support descriptions if included. Missing optional proof does not block a clean working preview. Missing form delivery or legal essentials blocks publication.
+
+Acceptance checklist
+
+All ten core module groups appear without unsupported feature expansion. The two global CTA labels match image 1. The demo form follows image 2's clarity without signup friction. Contact layout interprets image 3 without borrowing its identity. Customer evidence appears only with permission. Pricing is monthly and uses 999, 2999 and 5999 BDT with the original limits. Existing signup and blog routes survive. English and Bangla marketing content is complete and reviewed. Sample numbers reconcile. Real forms report truthful delivery state. Tests are reported as measured results. The site remains a local or preview build until publication is authorized.
+
+Source record
+
+Original user document: SortPi Landing Page Antigravity Build Prompt.docx, including its master prompt, content specification, follow-up prompts, acceptance checklist and required inputs.
+
+User images: 1image.png for CTAs; 2image.png for form design; 3image.png for contact composition.
+
+Competitor homepage content reviewed: https://chillypos.com/ and https://mediasoftbd.com/ on 27 October 2026. Public page content and the supplied images inform this brief; no competitor conversion analytics, measured speed audit or complete authenticated product review was performed.

@@ -1,0 +1,461 @@
+SUPER SHOP POS SOFTWAREUI, Terminology & Content Audit Report
+
+Audit Type: UI/UX Content & Terminology AuditSystem Type: Super Shop / Retail POSPages Audited: 2
+
+Audit Scope
+
+The audit covers spelling, grammar, page titles, buttons, labels, POS/retail terminology, messages, status names, table headings, consistency, and whether displayed terminology accurately represents the underlying business meaning.
+
+1. Coupons Page
+
+Findings
+
+No.
+
+Current Text
+
+Recommended Text
+
+Issue
+
+Priority
+
+1
+
+Codes
+
+Code
+
+Each row contains one coupon code; singular is cleaner.
+
+Low
+
+2
+
+Values
+
+Value
+
+Each row contains one coupon value.
+
+Low
+
+3
+
+Min Spend
+
+Minimum Spend
+
+More professional and clearer.
+
+Medium
+
+4
+
+Currently running
+
+Currently Active
+
+More consistent with the Active status.
+
+Low
+
+5
+
+Upcoming campaigns
+
+Upcoming Campaigns
+
+Capitalization consistency.
+
+Low
+
+6
+
+No longer valid
+
+No Longer Valid
+
+Capitalization consistency.
+
+Low
+
+7
+
+Flat $15 Off
+
+$15 Off
+
+"Flat" is unnecessary.
+
+Low
+
+8
+
+Buy One Get One 50%
+
+Buy One, Get One 50% Off
+
+Current wording is grammatically incomplete/ambiguous.
+
+High
+
+9
+
+Inactive
+
+Define inactive separately from expired
+
+Inactive and Expired may overlap; clarify the business rule.
+
+Medium
+
+Coupon Status Review
+
+The statuses Active, Inactive, Expired, and Scheduled are valid. Inactive should ideally indicate a manually disabled coupon, while Expired should indicate that the validity period has ended.
+
+Date/status consistency should also be verified. For example, a coupon shown as Scheduled with a validity end date in the past would be inconsistent if the dates represent live production data.
+
+The coupon "Free Shipping" is appropriate if the super shop supports online ordering or home delivery. If the system is strictly in-store, a supermarket-relevant promotion may be more appropriate.
+
+Coupons Page Verdict
+
+Area
+
+Verdict
+
+Spelling
+
+OK — no major spelling errors
+
+Grammar
+
+Minor corrections required
+
+Terminology
+
+Minor improvements required
+
+Data consistency
+
+Needs verification
+
+Overall
+
+Minor improvements recommended
+
+2. Main Dashboard / Overview Page
+
+Grammar & Wording
+
+No.
+
+Current Text
+
+Recommended Text
+
+Issue
+
+Priority
+
+1
+
+Here is that, Real-time overview of your entire business
+
+Here is a real-time overview of your entire business.
+
+Grammatically incorrect.
+
+High
+
+2
+
+Todays
+
+Today's
+
+Missing apostrophe.
+
+Low
+
+3
+
+First Time
+
+First-Time Customers
+
+More precise customer terminology.
+
+Low
+
+4
+
+Return
+
+Returning Customers
+
+"Return" is ambiguous as a customer category.
+
+Medium
+
+5
+
+Type
+
+Customer Type
+
+More descriptive.
+
+Low
+
+Dashboard KPI Terminology
+
+Current Term
+
+Recommendation
+
+Status
+
+Net Sales
+
+Net Sales
+
+OK
+
+Gross Profit
+
+Gross Profit
+
+OK
+
+Profit Margin
+
+Profit Margin
+
+OK
+
+Receivables
+
+Receivables
+
+OK
+
+Payables
+
+Payables
+
+OK
+
+Today's Expenses
+
+Today's Expenses
+
+OK
+
+Cash / Bank Balance
+
+Cash / Bank Balance
+
+OK
+
+Total Inventory Value
+
+Total Inventory Value
+
+OK
+
+Sales Analytics
+
+Sales Analytics
+
+OK
+
+Cost of Goods
+
+Cost of Goods Sold (COGS)
+
+Recommended
+
+Customers Overview
+
+Customer Overview
+
+Recommended
+
+Branch Performance
+
+Branch Performance
+
+OK
+
+Sales Analytics
+
+The displayed figures appear mathematically consistent: $16,500 Net Sales − $10,200 Cost of Goods = $6,300.
+
+If $6,300 is the monetary difference between sales and cost of goods, the correct term is "Gross Profit" rather than "Gross Margin". Gross Margin normally represents a percentage.
+
+Current
+
+Recommended
+
+Cost of Goods
+
+Cost of Goods Sold (COGS)
+
+Gross Margin — $6,300
+
+Gross Profit — $6,300, if this is the monetary gross profit
+
+Customer Overview
+
+Current
+
+Recommended
+
+First Time 61%
+
+First-Time Customers — 61%
+
+Return 39%
+
+Returning Customers — 39%
+
+Type
+
+Customer Type
+
+Branch Performance
+
+Current
+
+Recommended
+
+Priority
+
+SN
+
+# or S/N
+
+Low
+
+Achievement
+
+Target Achievement
+
+Low
+
+Basket
+
+Average Basket Value / Avg. Basket Value, if that is the metric
+
+Medium
+
+The term "Basket" is acceptable in retail analytics, but it may be ambiguous. If the value represents the average amount spent per transaction, "Average Basket Value" is clearer.
+
+Branch Data Verification
+
+The extracted table content appears to show: Mirpur-12 | DHK-01 | Dhaka | $221,840, while the headings include Branch | City | Net Sales. Verify the actual UI to ensure the columns are aligned correctly. If DHK-01 is a branch code, consider explicitly labeling it as Branch Code.
+
+Field
+
+Example
+
+Branch
+
+Mirpur-12
+
+Branch Code
+
+DHK-01
+
+City
+
+Dhaka
+
+Net Sales
+
+$221,840
+
+Priority: High — verify in the actual interface.
+
+Business Terminology Consistency
+
+Term
+
+Meaning
+
+Gross Profit
+
+Net Sales − COGS
+
+Gross Margin
+
+Gross Profit expressed as a percentage of sales
+
+Net Profit
+
+Profit after applicable expenses
+
+Net Profit Margin
+
+Net Profit expressed as a percentage of sales
+
+These terms should remain distinct and consistent throughout the POS.
+
+Overall Audit Summary
+
+Page
+
+Spelling
+
+Grammar
+
+Terminology
+
+Data / Consistency
+
+Overall
+
+Coupons
+
+OK
+
+Minor
+
+Minor
+
+Needs verification
+
+Minor corrections
+
+Dashboard
+
+OK
+
+Minor
+
+Minor
+
+Needs verification
+
+Minor–moderate corrections
+
+High-Priority Corrections
+
+Replace "Here is that, Real-time overview of your entire business" with "Here is a real-time overview of your entire business."
+
+Replace "Buy One Get One 50%" with "Buy One, Get One 50% Off".
+
+Use "Gross Profit — $6,300" instead of "Gross Margin — $6,300" if the figure is a monetary gross profit.
+
+Verify the Branch Performance table alignment and ensure Branch Code, City, and Net Sales are displayed under the correct columns.
+
+Ensure coupon statuses correspond to their validity dates.
+
+Replace "Return" with "Returning Customers" where it refers to customer type.
+
+Overall Conclusion
+
+The two audited pages contain no significant spelling problems. The main opportunities are professional wording, retail/POS terminology, grammatical clarity, and consistency between displayed values and their labels. Applying the recommended changes will make the interface clearer and more appropriate for a professional super shop POS environment.
+
+Audit Progress: 2 pages completed

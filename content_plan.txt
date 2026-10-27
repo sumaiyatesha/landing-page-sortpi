@@ -1,0 +1,467 @@
+12 Post Type
+
+Problem-first post — Retail/POS business কোথায় সবচেয়ে বেশি operational friction face করে: sales tracking, return, customer records, scattered reporting ইত্যাদি। শেষে দেখাবে কেন তোমরা unified system build করেছ।
+
+Founder/CEO product thinking post — “We didn’t want to build another billing screen. We wanted to build a system where a business owner can understand what is happening without asking five people.” এই angle।
+
+Behind-the-product post — কেন Dashboard, POS, Sales, Customer, Return, Discount, Reports আলাদা flow হিসেবে design করা হয়েছে এবং এগুলো একে অন্যের সাথে কীভাবে connected।
+
+Feature deep-dive — একেক post-এ একেক feature। যেমন:
+
+Sales & POS
+
+Return Management
+
+Customer Management
+
+Dashboard
+
+Reports
+
+Discount Management
+
+Business impact post — feature না বলে outcome বলবে। যেমন: “Faster checkout is useful. But knowing what sold, what returned, who bought, and where margin is leaking—that’s where a POS becomes a business system.”
+
+Design decision post — UI কেন clean, data-heavy screen কেন simple রাখা হয়েছে, sales staff এবং owner—দুই ধরনের user-এর জন্য usability কীভাবে balance করা হয়েছে।
+
+Build-in-public / progress post — initial wireframe → module planning → UI → development → testing এর journey। CEO profile-এ এই ধরনের post trust build করে।
+
+Industry insight post — Retail/POS industry নিয়ে CEO opinion। যেমন: “Most small retailers don’t have a sales problem. They have a visibility problem.” তারপর product context naturally connect করবে।
+
+Before vs After post — Before: Excel + calculator + manual customer note + separate return log। After: one connected operating system।
+
+Use-case story — hypothetical business scenario: customer purchase করলো → POS sale → customer record update → return হলে return module → dashboard/report update। এতে পুরো product journey সহজে বোঝানো যাবে।
+
+Engineering/product challenge post — “A POS looks simple from the counter. Behind it, inventory, discounts, customers, returns, reporting and permissions have to stay in sync.” তারপর কীভাবে তোমরা architecture/UX চিন্তা করেছ।
+
+Vision / product direction post — আজ POS, কিন্তু long-term vision কী: শুধু transaction system না, বরং business operation intelligence layer।
+
+CEO Profile-এর জন্য Recommended Content Topics
+
+Order
+
+Post Type
+
+Content Topic / Hook
+
+Format
+
+01
+
+Industry Insight
+
+Most retailers don’t have a sales problem. They have a visibility problem.
+
+Static / 4-slide carousel
+
+02
+
+Founder / CEO Product Thinking
+
+We didn’t want to build another billing screen.
+
+6-slide carousel
+
+03
+
+Problem-first
+
+A sale is recorded. But is the business actually visible?
+
+5-slide carousel
+
+04
+
+Behind the Product
+
+Why we separated POS, Sales, Customer, Return & Reports
+
+7-slide carousel
+
+05
+
+Business Impact
+
+A POS should tell you more than what was sold
+
+Static / 5 slides
+
+06
+
+Feature Deep Dive
+
+Return Management: where operational mistakes become expensive
+
+5-slide carousel
+
+07
+
+Design Decision
+
+Why we intentionally kept a data-heavy POS simple
+
+6-slide carousel
+
+08
+
+Use-case Story
+
+One customer. One sale. One return. One connected data trail.
+
+7-slide journey carousel
+
+09
+
+Engineering Challenge
+
+The checkout screen is the easy part
+
+6-slide carousel
+
+10
+
+Before vs After
+
+From scattered tools to one operating flow
+
+5-slide comparison
+
+11
+
+Build in Public
+
+From module map to working retail system
+
+6-slide progress carousel
+
+12
+
+Vision
+
+From POS software to a business intelligence layer
+
+5-slide founder vision
+
+এই order-এর benefit হচ্ছে শুরুতেই product sell করা হচ্ছে না। আগে CEO একটা point of view establish করছে। তারপর সেই thinking থেকে কেন product build করা হয়েছে সেটা naturally আসে।
+
+Post 02 — Founder / CEO Product Thinking
+
+এটাই আমি তোমাদের 2nd content হিসেবে নিতাম।
+
+Core angle
+
+“We didn’t want to build another billing screen. We wanted to build a system where a business owner can understand what is happening without asking five people.”
+
+এখানে POS feature list দেখানো main objective না।
+
+Main objective হবে CEO-কে এমন একজন founder হিসেবে position করা যে operational problem বুঝে product build করছে।
+
+Recommended Format
+
+6-slide LinkedIn / Instagram Carousel
+
+Square: 1080 × 1080 px
+
+CEO LinkedIn-এর জন্য একই content 1080 × 1350 portrait version-ও বানানো যেতে পারে।
+
+Slide 01 — Hook
+
+Copy
+
+We didn’t want to buildanother billing screen.
+
+Small supporting copy:
+
+Retail businesses already have enough tools.What they often don’t have is clarity.
+
+Visual
+
+একটা clean POS terminal/UI screen background-এ very subtle থাকবে।
+
+Foreground-এ huge typography।
+
+Visual hierarchy:
+
+BILLING SCREENএর উপর subtle strike-through / faded treatment
+
+তার নিচে:
+
+BUSINESS CLARITY
+
+Designer Direction
+
+Feature screenshot দেখিয়ে slide শুরু করবে না।
+
+এটা product ad না—founder thought মনে হতে হবে।
+
+Slide 02 — The Real Problem
+
+Copy
+
+The problem starts after the transaction.
+
+A sale happens.
+
+Then the questions begin:
+
+What sold?Who bought it?What came back?Which discount was used?What is actually happening today?
+
+Visual
+
+Center-এ একটি transaction receipt / POS icon।
+
+সেখান থেকে 5টা branch:
+
+Sales
+
+Customer
+
+Return
+
+Discount
+
+Report
+
+Branchগুলো deliberately disconnected feel করবে।
+
+Bottom caption:
+
+One transaction. Five places to look.
+
+Slide 03 — Founder Observation
+
+Copy
+
+A business owner shouldn’t need five peopleto understand one business.
+
+Small copy:
+
+When sales, customer records, returns and reports live separately,the owner spends more time asking for information than acting on it.
+
+Visual
+
+Left side:
+
+Owner / CEO figure
+
+Right side:
+
+5 different department/person cards:
+
+Counter staff
+
+Sales
+
+Accounts
+
+Inventory
+
+Manager
+
+সবগুলো থেকে owner-এর দিকে information bubble যাচ্ছে।
+
+Visual mood:
+
+Information overload
+
+Slide 04 — Product Thinking
+
+Copy
+
+So we changed the question.
+
+Instead of:
+
+“How do we make billing faster?”
+
+We asked:
+
+“How do we make the business easier to understand?”
+
+Visual
+
+Split-screen concept.
+
+Left:
+
+Transaction thinking
+
+Customer → Bill → Payment
+
+Right:
+
+Business-system thinking
+
+Sale → Customer → Return → Discount → Dashboard → Report
+
+Right side visually connected থাকবে।
+
+এটাই carousel-এর strongest product-thinking slide হওয়া উচিত।
+
+Slide 05 — What We Built
+
+Copy
+
+That thinking shaped the entire product.
+
+POS records the transaction↓Sales keeps the history↓Customer builds the relationship↓Returns & Discounts capture operational changes↓Dashboard & Reports turn activity into visibility
+
+Visual
+
+Actual product UI use করার best slide এটা।
+
+Dashboard, POS, Customer, Return, Reports-এর 4–5 UI crop নিয়ে একটা connected ecosystem বানাবে।
+
+Flow line:
+
+Transaction → Data → Context → Decision
+
+এখানে UI screenshots readable হওয়ার দরকার নেই।
+
+Overall system relationshipটা বোঝা জরুরি।
+
+Slide 06 — Founder Closing
+
+Copy
+
+Because a POS shouldn’t stop at the counter.
+
+It should help the owner understand the business behind it.
+
+Big closing line:
+
+That’s the kind of system we wanted to build.
+
+Bottom:
+
+Building retail software around visibility, not just transactions.
+
+Visual
+
+Minimal।
+
+CEO/Founder photo থাকলে এক পাশে founder portrait + অন্য পাশে product dashboard।
+
+Founder photo না থাকলে:
+
+একটি clean dashboard hero visual + statement।
+
+Bottom-right ছোট brand logo।
+
+Full CEO Caption
+
+We didn’t want to build another billing screen.
+
+There are already plenty of systems that can calculate a total, print a receipt and record a transaction.
+
+But when we looked at how retail businesses actually operate, the bigger problem appeared after the sale.
+
+What sold today?
+
+Who bought it?
+
+What was returned?
+
+Which discounts affected the numbers?
+
+What does the owner need to know right now?
+
+Too often, the answers live in different screens, spreadsheets or with different people.
+
+So we started with a different question:
+
+How can we build a system where a business owner can understand what is happening without asking five people?
+
+That question shaped the way we approached the product.
+
+POS handles the transaction.
+
+Sales keeps the history.
+
+Customer management adds context.
+
+Returns and discounts capture what changes after the sale.
+
+Dashboards and reports turn all of that activity into something the business can actually understand.
+
+Because faster billing is useful.
+
+But visibility is what helps an owner make better decisions.
+
+We’re not trying to make the counter more complicated.
+
+We’re trying to make the business behind the counter easier to see.
+
+Captionটা intentionally sales-heavy রাখিনি। চাইলে এটাকে আরও founder-personal, bold/contrarian, বা LinkedIn thought-leadership tone-এ নেওয়া যাবে।
+
+Design Team Execution Structure
+
+এই post-এর design team-এর কাছে শুধু copy দিলে হবে না। নিচের flow-তে handoff করো:
+
+Slide
+
+Purpose
+
+Main Visual
+
+UI Needed
+
+01
+
+Stop scroll
+
+Bold typography + POS hint
+
+Optional
+
+02
+
+Show complexity
+
+Transaction → 5 disconnected data points
+
+No
+
+03
+
+Humanize problem
+
+Owner + multiple information sources
+
+No
+
+04
+
+Show founder thinking
+
+Transaction thinking vs system thinking
+
+No
+
+05
+
+Reveal product solution
+
+Connected module ecosystem
+
+Yes
+
+06
+
+Position vision
+
+Product + founder statement
+
+Yes
+
+Visual consistency
+
+সব slides-এর মধ্যে একটা recurring connection line / node system রাখো। শুরুতে nodes fragmented থাকবে, শেষের দিকে সব nodes connected হয়ে যাবে।
+
+এতে carousel-এর design নিজেই একটা story বলবে:
+
+Fragmentation → Question → Rethinking → Connection → Visibility
+
+আর একটা গুরুত্বপূর্ণ decision: পুরো carousel-এ feature cards everywhere avoid করো। Slide 5-এর আগে product reveal যত কম হবে, founder-story angle তত strong হবে।
+
+পরের content হিসেবে Post 03 — “A sale is recorded. But is the business actually visible?” নিলে এই post-এর narrative naturally continue করবে।

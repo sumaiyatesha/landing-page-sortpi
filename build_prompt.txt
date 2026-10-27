@@ -1,0 +1,197 @@
+SortPi Landing Page: Antigravity Build Prompt
+
+Prepared 27 October 2026. Use this to build the new https://www.sortpi.com landing page in Google Antigravity. It assumes the visual design comes from Stitch (see the Stitch prompt doc) and that Antigravity turns it into working code.
+
+1. How to use this document
+
+Step 1: create an empty project folder and open it in Antigravity. If you are replacing the existing SortPi site, open that repo instead.
+
+Step 2: put the Stitch outputs (screenshots or exports of the desktop and mobile designs) in a /design folder inside the project.
+
+Step 3: paste the master build prompt (section 2) into the agent. Ask it to produce its plan first and read the plan before you approve it.
+
+Step 4: put the content from section 3 into the project as the content files the prompt describes, or paste section 3 below the prompt.
+
+Step 5: after the first build, run the follow-up prompts in section 4 one at a time.
+
+Step 6: check the result against section 5 before anything goes live.
+
+If you use workspace rules in Antigravity, save the "Working rules" block from the master prompt as a rule file so every task follows it.
+
+2. Master build prompt (paste into Antigravity)
+
+You are a senior frontend engineer and UI designer with deep experience building fast, accessible marketing sites for emerging markets. Build the new landing page for SortPi, a cloud POS and business management platform for shops in Bangladesh (retail, super shops, grocery, pharmacy, restaurants, wholesale, multi-branch).FIRST, PLANBefore writing code, inspect the workspace and produce an implementation plan and a task list. If an existing repo is present, read it and match its framework and conventions. If the workspace is empty, scaffold the project described below. Wait for my approval of the plan.DESIGN SOURCEThe Stitch designs in /design are the visual source of truth (layout, spacing, colors, type, components). Follow them closely. Where a design is missing or unclear, use the design direction below. Do not copy any other website's layout, wording or images.CORE IDEAThe customer is the hero. The page leads with real shop owners, a happy-clients wall, customer stories and reviews. The POS product screens support that story.STACK (default for a new project)- Next.js (App Router) with TypeScript and Tailwind CSS.- next/image for all images, next/font for fonts (Inter for English, Hind Siliguri or Noto Sans Bengali for Bangla).- No heavy UI or animation libraries. Use CSS and small hooks. If one small animation library is truly needed, ask first.- All copy and data live in typed files under /content so placeholders can be swapped without touching components.- Keep the existing routes: /signup (with ?plan=starter|standard|business), /contact, /blog and /blog/[slug]. Do not break existing blog URLs.PAGE SECTIONS (in this order, each its own component, each with an id anchor)1. Header: sticky nav with logo; links Features, Solutions, Customers, Pricing, Blog, Contact; English / বাংলা switch; buttons 'Book a demo' (outlined, goes to #demo) and 'Start free trial' (filled, goes to /signup). Mobile: hamburger menu with a full-height drawer, keyboard accessible.2. Hero (customer first): headline, supporting line, two buttons, trust line, large photo of a shop owner or cashier with a POS screen, floating 5-star review card.3. Clients wall (#customers): heading 'Shops that run on SortPi', two rows of logos scrolling in opposite directions, pause on hover and on reduced-motion preference, plus a row of 3 real numbers.4. Customer stories: one featured story with video thumbnail (opens an accessible modal player) and a carousel of review cards with business-type filter chips. Swipe on mobile.5. Problems and answers: 4 cards.6. Solutions by business type (#solutions): 6 cards.7. Features (#features): 10 cards, first two larger.8. Product in action: device mockup with 4 clickable steps that change the screen, plus a video modal.9. How it works: 5 numbered steps and a setup-help banner.10. Results strip: 3 to 4 numbers with labels.11. Pricing (#pricing): monthly/yearly toggle, 3 plan cards, comparison table, custom plan line.12. Trust and more reviews: support, security, local team, short review cards.13. FAQ (#faq): accessible accordion.14. Blog preview: latest 2 to 3 posts, pulled from the existing blog source. If the blog source is not available, use typed sample data clearly marked as sample.15. Final call to action with demo request form (#demo).16. Footer: rendered once, all links real.DEMO REQUEST FORMFields: name, phone, business type (dropdown), number of branches. Validate on the client and the server. Bangladeshi mobile numbers accept 01XXXXXXXXX or +8801XXXXXXXXX (operator digit 3 to 9). Add a hidden honeypot field and basic rate limiting. Submit to an API route at /api/demo-request that validates and then forwards to a URL read from the environment variable DEMO_WEBHOOK_URL. If that variable is missing, log the request on the server in development and return a clear error in production. Show loading, success and error states. Never put secrets in client code or in the repo. Provide .env.example.INTERNATIONALIZATIONEnglish is the default. Add a Bangla version using a simple dictionary approach (or next-intl if the repo already uses it). Provide Bangla strings for all UI text and mark each one 'needs human review' in the content file. Language choice persists and updates the html lang attribute. Layout must tolerate roughly 30 percent longer Bangla text.SEO- Title 'SortPi | Smart POS and Inventory Software for Shops in Bangladesh' and a matching meta description (keep under 160 characters).- One canonical URL (https://www.sortpi.com), Open Graph and Twitter large-image tags, a share image slot at /public/og.png.- JSON-LD for Organization, SoftwareApplication (with pricing offers in BDT) and FAQPage generated from the FAQ content.- One H1, a logical H2/H3 order, each heading rendered once. Descriptive alt text for meaningful images, empty alt for decorative ones.- sitemap.xml and robots.txt.PERFORMANCE- Mobile first. Target Lighthouse mobile: Performance 90+, Accessibility 95+, Best Practices 95+, SEO 95+.- LCP under 2.5s on a mid-range phone on 4G. Preload the hero image, lazy-load everything below the fold, serve modern formats, set image width and height to avoid layout shift.- Videos load only when the user presses play. No autoplay audio.- No third-party scripts except a small analytics stub (below).ACCESSIBILITY- WCAG 2.2 AA contrast. Full keyboard navigation with visible focus. Proper landmarks. ARIA only where needed. Respect prefers-reduced-motion. Tap targets at least 44px.- Modals trap focus and close on Escape. Carousels have labelled previous/next buttons and do not auto-advance.ANALYTICS STUBCreate a trackEvent(name, props) helper that does nothing unless NEXT_PUBLIC_ANALYTICS_ID is set. Call it for: start_trial_click, book_demo_click, plan_selected (with plan), demo_form_submit, video_play, language_change.DESIGN DIRECTION (use only where /design is silent)Clean, modern, warm, trustworthy. Lots of white space. Large readable type. Rounded cards and soft shadows, subtle motion. Primary color is the SortPi brand blue [PLACEHOLDER HEX], white, a light grey-blue background, and one warm accent color for stars and highlights. Currency in taka (৳). Sample data uses realistic Bangladeshi names, shops and products, and every number must add up.CONTENT RULES- Use only the content I provide in the content files. Do not invent statistics, client names, reviews, awards, certifications or integrations.- Anything unknown is a placeholder: the text '[PLACEHOLDER: what is needed]' in the content file, and visibly flagged in development with a yellow outline. Placeholders must never ship silently: add a build check that fails the production build if any '[PLACEHOLDER' string remains in rendered content, with an override flag ALLOW_PLACEHOLDERS=true for previews.- Do not use logos or photos of real brands or people. Use neutral placeholder assets until real ones are supplied.- One primary action per section. Use the same two button labels everywhere: 'Start free trial' and 'Book a demo'.- Use 'SortPi' (capital S, capital P) and 'bKash' and 'Nagad' spellings.WORKING RULES- Work in small steps. After each major section, run the type check, lint and build, and fix errors before moving on.- Keep components small and reusable. No duplicated markup for desktop and mobile; use responsive classes so each text block is rendered once.- Do not install a package without saying why.- Do not delete or rewrite files outside the landing page without asking.- Commit-sized, clearly named changes. Write a short README with setup, scripts, env vars and how to edit content.VERIFYWhen the build is complete, open the site in the browser tool and capture screenshots at 390px, 768px and 1440px width for the full page. Compare them to /design and list every difference. Run Lighthouse for mobile and report the scores. Test the form (valid, invalid, success, failure), the language switch, the pricing toggle, the FAQ, the carousel and both modals using the keyboard only. Report anything you could not verify.DELIVERABLES- Working site that runs with the standard dev and build commands.- /content files for all copy and data.- PLACEHOLDERS.md listing every placeholder, where it appears and what is needed.- README.md and .env.example.- A final report: what was built, what differs from /design and why, test results, and open questions.
+
+3. Content to load into the content files
+
+Paste this under the prompt, or save it as content/source.md in the project.
+
+3.1 Business facts
+
+Name: SortPi. Positioning line: Smart POS and business management for shops in Bangladesh.
+
+Contact: contact@sortpi.com, +88 01341869125.
+
+Company: built by GeekSSort.
+
+Business types: retail shops, super shops, grocery stores, restaurants, pharmacies, wholesalers, multi-branch businesses.
+
+Existing URLs to keep: /signup, /contact, /blog.
+
+3.2 Navigation
+
+Features, Solutions, Customers, Pricing, Blog, Contact. Buttons: Book a demo, Start free trial.
+
+3.3 Features (confirmed on the current site)
+
+Billing and POS: fast checkout, sales and returns, cash, card and mobile wallet payments (bKash, Nagad), dues kept in step with stock.
+
+Inventory: real-time stock, stock goes down with every sale and up with every purchase, low-stock warnings, product management, stock transfers between branches.
+
+Purchases and suppliers: purchase records, purchase dues.
+
+Customers and dues: purchase history, how often and how much they buy, dues, top customers.
+
+Expenses and accounts: income, expenses, cash flow, net profit, cash in hand, payment history.
+
+Reports: sales, profit, stock, purchases, expenses and staff reports by day, month or branch; print or download.
+
+HR and payroll.
+
+Multi-branch control: each branch keeps its own stock, sales and staff; view all together or one at a time.
+
+Users and access: team users with access set around roles.
+
+Dashboard: sales due, net profit, expenses, purchase due, low-stock products, stock alerts, daily target.
+
+Works on any device.
+
+Features to show only after the owner confirms them: offline mode, Bangla interface and receipts, barcode scanner and receipt printer support, bKash/Nagad integration depth, Excel import, discounts and loyalty, VAT reports, restaurant KOT and tables, pharmacy batch and expiry tracking, weight-based billing, SMS or WhatsApp receipts, owner mobile app, backup and security details. Put each in the content file with a flag confirmed: false and do not render unconfirmed items.
+
+3.4 How it works
+
+Set up your business: create the foundation for your operation.
+
+Add products and inventory: organize the items your team manages.
+
+Configure operations: shape access and workflows around your team.
+
+Start selling and tracking: bring daily activity into the platform.
+
+Review reports and grow: use business signals to guide decisions.
+
+3.5 Pricing (monthly, BDT)
+
+Starter, ৳999/month: one branch, up to 5 users, up to 2,000 products, point of sale and inventory, sales reports. Button 'Try for free' to /signup?plan=starter.
+
+Standard, ৳2,999/month, badge 'Most Recommended': up to 3 branches, up to 15 users, up to 20,000 products, stock transfers between branches, HR and payroll, full reports. Button 'Try for free' to /signup?plan=standard.
+
+Business, ৳5,999/month: up to 10 branches, up to 50 users, unlimited products, HR and payroll, full reports. Button 'Get started' to /signup?plan=business. [PLACEHOLDER: confirm whether stock transfers are included]
+
+Under the buttons: 'Free trial. No card needed.'
+
+Custom plan line for more than 10 branches, with a contact button.
+
+Yearly prices: [PLACEHOLDER: yearly pricing, or remove the toggle].
+
+3.6 FAQ (current answers, keep wording)
+
+What is Sortpi? An all-in-one business management platform that helps you manage sales, inventory, finances and daily operations efficiently. (Use the spelling SortPi.)
+
+What types of businesses can use it? Retail shops, super shops, grocery stores, restaurants, pharmacies, wholesalers and other businesses.
+
+What features does it offer? A point of sale, inventory and stock transfers, purchases and suppliers, customers and their dues, expenses and accounts, HR and payroll, and reports, all in one place, on any device.
+
+Can I manage multiple branches? Yes. Each branch keeps its own stock, sales and staff, you can move stock between them, and you see every branch together or one at a time.
+
+Can it help me track sales and expenses? Yes. Every sale, return, purchase and expense is recorded as it happens, so your profit, dues and cash in hand are always up to date.
+
+Can I track inventory in real time? Yes. Stock goes down with every sale and up with every purchase, and SortPi warns you before an item runs low.
+
+Does it provide business reports? Yes: sales, profit, stock, purchases, expenses and staff reports, for any day, month or branch, ready to print or download.
+
+How can I get started? Create an account, add your business and products, and start selling. The free trial needs no card, and the team can help you set up.
+
+Extra questions to add once answers are confirmed: Does it work offline? Is there Bangla support? What hardware do I need? Can I import my products? How is my data protected? What support do I get?
+
+3.7 Customer proof (placeholders unless supplied)
+
+One real review exists: Salman Atik, owner of a super shop: 'SortPi brings our sales, inventory and daily operations together, helping us stay organized and manage our business more efficiently.' [PLACEHOLDER: confirm permission to use his name and shop, and supply a photo]
+
+All other reviews, client logos, video testimonials and numbers: [PLACEHOLDER].
+
+3.8 Footer
+
+Columns: Product (Features, Solutions, How it works, Book a demo), Company (About GeekSSort, Contact, Blog), Legal (Privacy policy, Terms of service: [PLACEHOLDER: real pages]), Contact details, social links [PLACEHOLDER: real URLs]. Replace the old tagline 'Care that comes to you.' with [PLACEHOLDER: tagline that fits a POS product].
+
+4. Follow-up prompts (run one at a time after the first build)
+
+4.1 Responsive pass
+
+Test every section at 360px, 390px, 768px, 1024px and 1440px. Fix overflow, cramped spacing, text that wraps badly, tap targets under 44px and any horizontal scrolling. Make sure each text block is rendered once and not duplicated for desktop and mobile. Show before and after screenshots for anything you change.
+
+4.2 Performance pass
+
+Run Lighthouse (mobile, throttled) and list the top issues. Fix them in this order: LCP image, layout shift, unused JavaScript, image sizes and formats, font loading. Report the scores before and after. Do not remove features to improve the score without asking.
+
+4.3 SEO and structured data pass
+
+Check the title, description, canonical, Open Graph and Twitter tags, heading order, alt text, sitemap, robots and JSON-LD (Organization, SoftwareApplication, FAQPage). Validate the JSON-LD and fix errors. Confirm there is one H1 and that no heading or paragraph appears twice in the rendered HTML.
+
+4.3b Bangla pass
+
+Review the Bangla version of every section. Check that fonts render correctly, nothing overflows, line height suits Bangla script, numbers and taka symbols display correctly and the language switch updates the html lang attribute. List every Bangla string still marked 'needs human review'.
+
+4.4 Accessibility pass
+
+Audit with an automated checker and then manually with the keyboard only. Check focus order, visible focus, modal focus trapping, carousel controls, accordion behavior, form labels and error messages, color contrast and reduced-motion behavior. Fix every issue and list what you changed.
+
+4.5 Release readiness
+
+Run the production build with ALLOW_PLACEHOLDERS unset and report every remaining placeholder. Confirm .env.example is complete, no secrets are committed, all links work (no '#' links remain), the 404 page exists, redirects from the non-canonical domain are documented, and the README explains how to deploy. Give me a go or no-go list.
+
+5. Acceptance checklist
+
+Customers (photos, logos, reviews) appear in the first two screens, in the middle and near the end.
+
+Every confirmed feature in section 3.3 appears. No unconfirmed feature appears.
+
+Pricing matches section 3.5 exactly, and plan buttons pass the correct ?plan= value.
+
+Both 'Book a demo' buttons reach a working form. The form validates Bangladeshi phone numbers and shows clear success and error messages.
+
+English and Bangla both work and the language persists.
+
+No duplicated headings or paragraphs in the HTML. Footer appears once.
+
+No dead links. No '#' placeholders for privacy, terms or social links.
+
+No typos in sample data (it is Paid, Due, bKash). Sample numbers add up. All currency in taka.
+
+Mobile Lighthouse scores meet the targets in the prompt.
+
+Keyboard-only use works for navigation, modals, carousel, accordion, pricing toggle and form.
+
+PLACEHOLDERS.md is complete and the production build fails while placeholders remain.
+
+6. What you need to supply
+
+Stitch designs (desktop and mobile) in /design.
+
+Brand blue hex code and logo files.
+
+Real client logos with permission, real numbers, reviews, photos and videos.
+
+Real screenshots of the POS, inventory, customers, reports and multi-branch screens.
+
+Answers for every unconfirmed feature in section 3.3.
+
+Yearly pricing and the stock transfer answer for the Business plan.
+
+Webhook or email destination for demo requests (DEMO_WEBHOOK_URL).
+
+Privacy policy and terms text, real social links, WhatsApp number, new tagline.
+
+Bangla copy review by a native speaker.
+
+Analytics ID, if you use analytics.
