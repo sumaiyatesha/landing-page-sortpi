@@ -8,6 +8,10 @@ import IndustrySelector from "@/components/sections/IndustrySelector";
 import FeatureOverview from "@/components/sections/FeatureOverview";
 import OwnerDashboard from "@/components/sections/OwnerDashboard";
 import SetupSteps from "@/components/sections/SetupSteps";
+import Pricing from "@/components/sections/Pricing";
+import CustomerStorySection from "@/components/sections/CustomerStory";
+import FAQ from "@/components/sections/FAQ";
+import SiteFooter from "@/components/layout/SiteFooter";
 
 export default function Home() {
   return (
@@ -22,7 +26,11 @@ export default function Home() {
         <FeatureOverview />
         <OwnerDashboard />
         <SetupSteps />
+        <Pricing />
+        <CustomerStorySection />
+        <FAQ />
       </main>
+      <SiteFooter />
     </div>
   );
 }
