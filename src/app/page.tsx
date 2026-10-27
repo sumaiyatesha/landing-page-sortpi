@@ -5,6 +5,9 @@ import CapabilityAnchors from "@/components/sections/CapabilityAnchors";
 import ProblemSolution from "@/components/sections/ProblemSolution";
 import WorkflowExplorer from "@/components/sections/WorkflowExplorer";
 import IndustrySelector from "@/components/sections/IndustrySelector";
+import FeatureOverview from "@/components/sections/FeatureOverview";
+import OwnerDashboard from "@/components/sections/OwnerDashboard";
+import SetupSteps from "@/components/sections/SetupSteps";
 
 export default function Home() {
   return (
@@ -16,6 +19,9 @@ export default function Home() {
         <ProblemSolution />
         <WorkflowExplorer />
         <IndustrySelector />
+        <FeatureOverview />
+        <OwnerDashboard />
+        <SetupSteps />
       </main>
     </div>
   );
