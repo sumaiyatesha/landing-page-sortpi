@@ -45,18 +45,16 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const {
-      fullName,
-      phoneNumber,
-      businessName,
-      businessType,
-      branchesCount,
-      email,
-      note,
-      selectedPlan,
-      website_url, // Honeypot field
-      intent, // "demo" | "contact"
-    } = body;
+    const fullName = body.fullName;
+    const phoneNumber = body.phoneNumber || body.phone;
+    const businessName = body.businessName;
+    const businessType = body.businessType;
+    const branchesCount = body.branchesCount || body.branches;
+    const email = body.email;
+    const note = body.note;
+    const selectedPlan = body.selectedPlan;
+    const website_url = body.website_url || body.company_website; // Honeypot field
+    const intent = body.intent; // "demo" | "contact"
 
     // 2. Honeypot check: If the hidden bot field is filled, silently ignore
     if (website_url) {
