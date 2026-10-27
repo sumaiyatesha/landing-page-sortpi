@@ -38,9 +38,9 @@ export default function BlogIndexPage() {
             New retail guides and operational case studies will appear here. In the meantime, explore how SortPi works or request a free demo for your store.
           </p>
           <div className="pt-2">
-            <a href="/#demo" className="btn-primary text-xs py-2 px-4">
+            <Link href="/#demo" className="btn-primary text-xs py-2 px-4">
               <span>Request Free Demo</span>
-            </a>
+            </Link>
           </div>
         </div>
       </main>

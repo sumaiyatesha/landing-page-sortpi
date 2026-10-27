@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { faqs } from "@/content/faqs";
 
 export default function FAQ() {
@@ -93,13 +94,13 @@ export default function FAQ() {
         {/* Quiet Help Clarification */}
         <div className="text-center mt-12 text-xs text-[#64748B]">
           Have a question specific to your retail setup?{" "}
-          <a href="/contact" className="text-[#2563EB] font-semibold hover:underline">
+          <Link href="/contact" className="text-[#2563EB] font-semibold hover:underline">
             Contact our team
-          </a>{" "}
+          </Link>{" "}
           or{" "}
-          <a href="/#demo" className="text-[#2563EB] font-semibold hover:underline">
+          <Link href="/#demo" className="text-[#2563EB] font-semibold hover:underline">
             Request a free demo
-          </a>
+          </Link>
           .
         </div>
       </div>

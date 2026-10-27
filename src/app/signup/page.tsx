@@ -2,11 +2,12 @@
 
 import React, { Suspense } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 
 function SignupInner() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const selectedPlan = searchParams.get("plan") || "starter";
 
@@ -27,16 +28,16 @@ function SignupInner() {
 
           <div className="p-4 rounded-xl bg-blue-50 border border-blue-200 text-xs text-[#1E3A8A] mb-6 leading-relaxed">
             New customers in Bangladesh typically prefer a guided 15-minute walkthrough before creating account credentials. You can also{" "}
-            <a href={`/#demo?plan=${selectedPlan}`} className="underline font-bold">
+            <Link href={`/#demo?plan=${selectedPlan}`} className="underline font-bold">
               schedule a free walkthrough here
-            </a>
+            </Link>
             .
           </div>
 
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              window.location.href = `/#demo?plan=${selectedPlan}`;
+              router.push(`/#demo?plan=${selectedPlan}`);
             }}
             className="space-y-4"
           >

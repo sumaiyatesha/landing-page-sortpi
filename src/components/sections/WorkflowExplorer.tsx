@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Link from "next/link";
 import { heroSampleSale, duesSampleSale } from "@/content/sampleFixtures";
 
 type WorkflowStepId = "sell" | "stock" | "dues" | "reports";
@@ -451,12 +452,12 @@ export default function WorkflowExplorer() {
             <span>
               Interactive demonstration: Demonstrates real data flow without connecting a live payment gateway or scanner.
             </span>
-            <a
+            <Link
               href="/#demo"
               className="font-semibold text-[#2563EB] hover:underline"
             >
               Request a tailored demo for your store →
-            </a>
+            </Link>
           </div>
         </div>
       </div>

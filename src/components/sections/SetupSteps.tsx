@@ -63,7 +63,7 @@ export default function SetupSteps() {
             Start with your daily workflow, then bring the rest of your operation together.
           </h2>
           <p className="body-large text-[#475569] mt-3">
-            You don't need days of complex training. SortPi is structured so your counter can start billing right away, adding inventory and reporting modules at your own pace.
+            You don&apos;t need days of complex training. SortPi is structured so your counter can start billing right away, adding inventory and reporting modules at your own pace.
           </p>
         </div>
 

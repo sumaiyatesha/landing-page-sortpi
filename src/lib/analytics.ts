@@ -20,6 +20,8 @@ export interface SafeEventProperties {
   [key: string]: string | number | boolean | undefined;
 }
 
+type GtagFunction = (...args: unknown[]) => void;
+
 /**
  * Tracks typed client events without sending PII.
  * If NEXT_PUBLIC_ANALYTICS_ID is unset, acts as a documented no-op stub.
@@ -30,11 +32,6 @@ export function trackEvent(
 ): void {
   const analyticsId = process.env.NEXT_PUBLIC_ANALYTICS_ID;
 
-  // In development, log to console for debugging without PII
-  if (process.env.NODE_ENV === "development") {
-    // console.log(`[SortPi Analytics - Stub] Event: ${eventName}`, properties || {});
-  }
-
   if (!analyticsId) {
     // Documented no-op when provider is unconfigured
     return;
@@ -42,10 +39,13 @@ export function trackEvent(
 
   // If a provider like Plausible / Google Analytics is configured in production:
   try {
-    if (typeof window !== "undefined" && (window as unknown as { gtag?: Function }).gtag) {
-      (window as unknown as { gtag: Function }).gtag("event", eventName, properties);
+    if (typeof window !== "undefined") {
+      const win = window as unknown as { gtag?: GtagFunction };
+      if (typeof win.gtag === "function") {
+        win.gtag("event", eventName, properties);
+      }
     }
-  } catch (err) {
+  } catch {
     // Fail silently in client
   }
 }

@@ -51,12 +51,12 @@ export default function ContactPage() {
               {/* Primary Demo Link */}
               <div className="p-4 rounded-xl bg-blue-50/80 border border-blue-200 text-xs text-[#1E3A8A] flex items-center justify-between">
                 <span>Looking for an interactive walkthrough?</span>
-                <a
+                <Link
                   href="/#demo"
                   className="font-bold text-[#2563EB] hover:underline shrink-0"
                 >
                   Request Free Demo →
-                </a>
+                </Link>
               </div>
 
               {/* Two Direct Contact Cards */}

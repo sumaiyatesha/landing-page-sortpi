@@ -119,7 +119,7 @@ export default function OwnerDashboard() {
               }`}
             >
               <div className="flex items-center justify-between text-xs text-[#94A3B8] mb-2">
-                <span>Today's Total Sales</span>
+                <span>Today&apos;s Total Sales</span>
                 <span className="text-[11px] text-[#0AC79E] font-semibold bg-[#0AC79E]/10 px-2 py-0.5 rounded">
                   84 bills
                 </span>
@@ -223,9 +223,9 @@ export default function OwnerDashboard() {
               Realistic sample figures. SortPi delivers practical daily clarity without fabricated claims.
             </div>
             <div className="flex items-center gap-3">
-              <a href="/#demo" className="btn-primary text-sm min-h-[44px]">
+              <Link href="/#demo" className="btn-primary text-sm min-h-[44px]">
                 <span>Request Free Demo</span>
-              </a>
+              </Link>
               <Link href="/contact" className="btn-dark-secondary text-sm min-h-[44px]">
                 <span>Contact Us</span>
               </Link>

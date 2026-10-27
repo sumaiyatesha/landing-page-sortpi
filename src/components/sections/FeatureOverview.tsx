@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { coreFeatureModules, FeatureModule } from "@/content/features";
+import { coreFeatureModules } from "@/content/features";
 
 export default function FeatureOverview() {
   const [showAllModules, setShowAllModules] = useState(false);

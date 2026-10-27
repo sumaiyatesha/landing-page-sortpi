@@ -182,7 +182,7 @@ export async function POST(req: NextRequest) {
       message:
         "Your request has been received. The SortPi team will contact you using the details you provided.",
     });
-  } catch (error) {
+  } catch {
     // Return safe failure message without exposing internals
     return NextResponse.json(
       {

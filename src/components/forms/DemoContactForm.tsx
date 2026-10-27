@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import { validateAndNormalizeBDPhone } from "@/lib/phone";
 import { trackEvent } from "@/lib/analytics";
@@ -22,12 +22,12 @@ export default function DemoContactForm({
   const [phoneNumber, setPhoneNumber] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [businessType, setBusinessType] = useState(
-    initialIndustry || "Retail shops"
+    () => initialIndustry || "Retail shops"
   );
   const [branchesCount, setBranchesCount] = useState("1");
   const [email, setEmail] = useState("");
   const [note, setNote] = useState("");
-  const [selectedPlan, setSelectedPlan] = useState(initialPlan || "");
+  const [selectedPlan, setSelectedPlan] = useState(() => initialPlan || "");
   const [showNoteField, setShowNoteField] = useState(false);
 
   // Honeypot field for bot protection
@@ -41,12 +41,6 @@ export default function DemoContactForm({
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const errorSummaryRef = useRef<HTMLDivElement>(null);
-
-  // Sync initial props if changed from URL params
-  useEffect(() => {
-    if (initialPlan) setSelectedPlan(initialPlan);
-    if (initialIndustry) setBusinessType(initialIndustry);
-  }, [initialPlan, initialIndustry]);
 
   const validateForm = (): boolean => {
     const errs: Record<string, string> = {};
@@ -147,7 +141,7 @@ export default function DemoContactForm({
           section: intent,
         });
       }
-    } catch (err) {
+    } catch {
       setServerError(
         "We could not send your request. Please try again or contact us directly at contact@sortpi.com."
       );

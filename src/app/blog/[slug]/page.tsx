@@ -52,9 +52,9 @@ async function BlogPostContent({
         <p className="text-xs text-[#475569] mb-4">
           Schedule a personalized 15-minute product walkthrough with our local team.
         </p>
-        <a href="/#demo" className="btn-primary text-xs py-2 px-4">
+        <Link href="/#demo" className="btn-primary text-xs py-2 px-4">
           <span>Request Free Demo</span>
-        </a>
+        </Link>
       </div>
     </article>
   );

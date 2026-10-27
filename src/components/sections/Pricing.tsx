@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { pricingPlans, planComparison, PricingPlan } from "@/content/pricing";
+import { pricingPlans, planComparison } from "@/content/pricing";
 
 export default function Pricing() {
   const [mobilePlanFilter, setMobilePlanFilter] = useState<

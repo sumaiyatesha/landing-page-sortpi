@@ -44,7 +44,7 @@ export default function Hero() {
 
             {/* Two Exact CTAs from Image 1 */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
-              <a href="/#demo" className="btn-primary text-base">
+              <Link href="/#demo" className="btn-primary text-base">
                 <span>Request Free Demo</span>
                 <svg
                   aria-hidden="true"
@@ -60,7 +60,7 @@ export default function Hero() {
                     d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
                   />
                 </svg>
-              </a>
+              </Link>
 
               <Link href="/contact" className="btn-secondary text-base">
                 <span>Contact Us</span>

@@ -34,7 +34,7 @@ try {
     permissionCheck,
     "Unverified customer quotes safely withheld with permissionConfirmed: false"
   );
-} catch (e) {
+} catch {
   check("Customer Testimonial Gating", false, "Missing customerStories.ts");
 }
 
@@ -53,7 +53,7 @@ try {
     offlineGated && banglaGated && biometricGated,
     "Offline mode, hardware SDK, and thermal receipts correctly marked as unconfirmed"
   );
-} catch (e) {
+} catch {
   check("Unconfirmed Feature Gating", false, "Missing features.ts");
 }
 
@@ -71,7 +71,7 @@ try {
     starterPrice && standardPrice && businessPrice,
     "Verified BDT 999, 2999, and 5999 monthly tiers"
   );
-} catch (e) {
+} catch {
   check("Plan Pricing Integrity", false, "Missing pricing.ts");
 }
 
@@ -88,7 +88,7 @@ try {
     emailOk && phoneOk,
     "contact@sortpi.com and +8801341869125 verified"
   );
-} catch (e) {
+} catch {
   check("Official Contact Configuration", false, "Missing siteSettings.ts");
 }
 

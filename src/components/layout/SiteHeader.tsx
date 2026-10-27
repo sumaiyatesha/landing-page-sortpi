@@ -113,7 +113,7 @@ export default function SiteHeader() {
           >
             Contact Us
           </Link>
-          <a
+          <Link
             href="/#demo"
             className="inline-flex items-center gap-1.5 min-h-[44px] px-5 rounded-xl text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-sm shadow-blue-600/20 transition-all hover:-translate-y-0.5"
           >
@@ -132,7 +132,7 @@ export default function SiteHeader() {
                 d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
               />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -198,7 +198,7 @@ export default function SiteHeader() {
                 <span className="text-xs font-semibold text-[#64748B]">Language:</span>
                 <LanguageToggle />
               </div>
-              <a
+              <Link
                 href="/#demo"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full btn-primary text-center"
@@ -218,7 +218,7 @@ export default function SiteHeader() {
                     d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
                   />
                 </svg>
-              </a>
+              </Link>
 
               <Link
                 href="/contact"

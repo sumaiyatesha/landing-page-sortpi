@@ -4,20 +4,22 @@ import React, { useState, useEffect } from "react";
 import { trackEvent } from "@/lib/analytics";
 
 export default function LanguageToggle() {
-  const [locale, setLocale] = useState<"en" | "bn">("en");
+  const [locale, setLocale] = useState<"en" | "bn">(() => {
+    if (typeof document !== "undefined") {
+      const saved = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("NEXT_LOCALE="))
+        ?.split("=")[1];
+      if (saved === "bn" || saved === "en") return saved;
+    }
+    return "en";
+  });
 
   useEffect(() => {
-    // Read cookie or html lang on mount
-    const saved = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("NEXT_LOCALE="))
-      ?.split("=")[1];
-
-    if (saved === "bn" || saved === "en") {
-      setLocale(saved);
-      document.documentElement.lang = saved;
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = locale;
     }
-  }, []);
+  }, [locale]);
 
   const toggleLanguage = () => {
     const nextLocale = locale === "en" ? "bn" : "en";

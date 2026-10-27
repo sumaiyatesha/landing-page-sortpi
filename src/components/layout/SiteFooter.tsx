@@ -51,29 +51,29 @@ export default function SiteFooter() {
             </h4>
             <ul className="space-y-2.5 text-sm text-[#475569]">
               <li>
-                <a href="/#features" className="hover:text-[#2563EB] transition-colors">
+                <Link href="/#features" className="hover:text-[#2563EB] transition-colors">
                   Core Features
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#solutions" className="hover:text-[#2563EB] transition-colors">
+                <Link href="/#solutions" className="hover:text-[#2563EB] transition-colors">
                   Industry Solutions
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#pricing" className="hover:text-[#2563EB] transition-colors">
+                <Link href="/#pricing" className="hover:text-[#2563EB] transition-colors">
                   Monthly Pricing
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#how-it-works" className="hover:text-[#2563EB] transition-colors">
+                <Link href="/#how-it-works" className="hover:text-[#2563EB] transition-colors">
                   How It Works
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#faq" className="hover:text-[#2563EB] transition-colors">
+                <Link href="/#faq" className="hover:text-[#2563EB] transition-colors">
                   Frequently Asked Questions
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -95,9 +95,9 @@ export default function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <a href="/#demo" className="hover:text-[#2563EB] transition-colors">
+                <Link href="/#demo" className="hover:text-[#2563EB] transition-colors">
                   Request Free Demo
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href="/signup" className="hover:text-[#2563EB] transition-colors">
@@ -150,15 +150,15 @@ export default function SiteFooter() {
             © {currentYear} SortPi. All rights reserved. Built by GeekSSort.
           </div>
           <div className="flex items-center gap-5">
-            <Link href="/contact" className="hover:text-[#0F172A] transition-colors">
+            <Link href="/privacy" className="hover:text-[#0F172A] transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/contact" className="hover:text-[#0F172A] transition-colors">
+            <Link href="/terms" className="hover:text-[#0F172A] transition-colors">
               Terms of Service
             </Link>
-            <a href="/#demo" className="hover:text-[#2563EB] font-medium transition-colors">
+            <Link href="/#demo" className="hover:text-[#2563EB] font-medium transition-colors">
               Request Demo
-            </a>
+            </Link>
           </div>
         </div>
       </div>
