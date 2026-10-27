@@ -11,7 +11,9 @@ import SetupSteps from "@/components/sections/SetupSteps";
 import Pricing from "@/components/sections/Pricing";
 import CustomerStorySection from "@/components/sections/CustomerStory";
 import FAQ from "@/components/sections/FAQ";
+import DemoSection from "@/components/sections/DemoSection";
 import SiteFooter from "@/components/layout/SiteFooter";
+import MobileActionBar from "@/components/layout/MobileActionBar";
 
 export default function Home() {
   return (
@@ -29,8 +31,10 @@ export default function Home() {
         <Pricing />
         <CustomerStorySection />
         <FAQ />
+        <DemoSection />
       </main>
       <SiteFooter />
+      <MobileActionBar />
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { siteSettings, mainNavigation } from "@/content/siteSettings";
+import LanguageToggle from "./LanguageToggle";
 
 export default function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -105,6 +106,7 @@ export default function SiteHeader() {
 
         {/* Action Area (Strict labels from Image 1) */}
         <div className="hidden md:flex items-center gap-3">
+          <LanguageToggle />
           <Link
             href="/contact"
             className="inline-flex items-center justify-center min-h-[44px] px-4 rounded-xl text-sm font-semibold text-[#0F172A] hover:bg-[#F6F8FC] border border-[#E2E8F0] transition-colors"
@@ -192,6 +194,10 @@ export default function SiteHeader() {
             </div>
 
             <div className="pt-6 border-t border-[#E2E8F0] space-y-3">
+              <div className="flex items-center justify-between pb-2">
+                <span className="text-xs font-semibold text-[#64748B]">Language:</span>
+                <LanguageToggle />
+              </div>
               <a
                 href="/#demo"
                 onClick={() => setMobileMenuOpen(false)}
