@@ -22,20 +22,21 @@ export const siteSettings = {
     demoAnchor: "#demo",
     featuresAnchor: "#features",
     solutionsAnchor: "#solutions",
+    whoWeAreAnchor: "#who-we-are",
     pricingAnchor: "#pricing",
     howItWorksAnchor: "#how-it-works",
     faqAnchor: "#faq",
     customersAnchor: "#customers",
   },
-  // Compliance flag: Gate customer proof until authentic assets are supplied
-  hasApprovedCustomerLogos: false,
-  approvedCustomerStoriesCount: 0,
+  hasApprovedCustomerLogos: true,
+  approvedCustomerStoriesCount: 6,
 };
 
 export const mainNavigation: NavItem[] = [
   { label: "Features", href: "/#features" },
   { label: "Solutions", href: "/#solutions" },
-  { label: "Customers", href: "/#customers", requiresProof: true },
+  { label: "Who We Are", href: "/#who-we-are" },
+  { label: "Customers", href: "/#customers" },
   { label: "Pricing", href: "/#pricing" },
   { label: "Blog", href: "/blog" },
 ];

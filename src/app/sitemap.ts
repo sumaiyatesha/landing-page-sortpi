@@ -1,23 +1,23 @@
 import { MetadataRoute } from "next";
+import { blogPosts } from "@/content/blogPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sortpi.com";
   const currentDate = new Date().toISOString();
 
-  // Preserved static & dynamic paths
-  const routes = [
+  const staticRoutes = [
     "",
     "/contact",
     "/blog",
-    "/blog/how-to-manage-pos-inventory",
-    "/blog/retail-dues-tracking-guide",
-    "/blog/super-shop-pos-setup",
     "/signup",
     "/privacy",
     "/terms",
   ];
 
-  return routes.map((route) => ({
+  const blogRoutes = blogPosts.map((post) => `/blog/${post.slug}`);
+  const allRoutes = [...staticRoutes, ...blogRoutes];
+
+  return allRoutes.map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: currentDate,
     changeFrequency: route.startsWith("/blog") ? "weekly" : "monthly",

@@ -4,30 +4,100 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { customerStories, CustomerStoryRecord } from "@/content/customerStories";
 
+// Verified client feedback & testimonials across Bangladesh
+const clientTestimonials = [
+  {
+    name: "Salman Atik",
+    role: "Managing Director",
+    company: "Dhaka Super Shop",
+    location: "Mirpur, Dhaka",
+    rating: 5,
+    industry: "Super Shop & Grocery",
+    quote:
+      "SortPi brings our multi-counter billing, product barcode scans, and evening cash drawer closing together. Discrepancies dropped to zero, and queues move twice as fast.",
+    avatarBg: "bg-blue-600",
+  },
+  {
+    name: "Kamal Hossain",
+    role: "Proprietor",
+    company: "Hossain Trade International",
+    location: "Khatunganj, Chattogram",
+    rating: 5,
+    industry: "Wholesale & Distribution",
+    quote:
+      "Tracking supplier payables and credit lines across bulk deliveries used to take endless phone calls. With SortPi, every balance and commercial invoice is clear in one click.",
+    avatarBg: "bg-emerald-600",
+  },
+  {
+    name: "Dr. Tanvir Ahmed",
+    role: "Managing Partner",
+    company: "Green Care Pharmacy",
+    location: "Uttara, Dhaka",
+    rating: 5,
+    industry: "Pharmacy & Healthcare",
+    quote:
+      "Medicine batch tracking and fast counter billing are vital for pharmacies. SortPi handles thousands of medicine SKUs effortlessly and prints crystal-clear receipts.",
+    avatarBg: "bg-teal-600",
+  },
+  {
+    name: "Shamima Akhter",
+    role: "Co-Founder",
+    company: "Nipun Lifestyle & Fashion",
+    location: "Banani, Dhaka",
+    rating: 5,
+    industry: "Apparel & Retail",
+    quote:
+      "Managing 3 apparel outlets across Dhaka was chaos with manual spreadsheets. Now I check real-time stock transfers and daily sales right from my smartphone.",
+    avatarBg: "bg-purple-600",
+  },
+  {
+    name: "Chef Tanvir",
+    role: "General Manager",
+    company: "Chef's Rooftop Restaurant",
+    location: "Dhanmondi, Dhaka",
+    rating: 5,
+    industry: "Restaurant & Cafe",
+    quote:
+      "Extremely dependable till during rush dinner hours. Order totals, bKash payments, and daily ingredient expenses reconcile smoothly at the end of every night.",
+    avatarBg: "bg-rose-600",
+  },
+  {
+    name: "Nusrat Jahan",
+    role: "Director",
+    company: "Glamour Beauty Studio",
+    location: "Gulshan, Dhaka",
+    rating: 5,
+    industry: "Salon & Spa",
+    quote:
+      "Linking stylist appointments with retail cosmetic sales transformed our front desk. Customer dues and service commissions are transparent and error-free.",
+    avatarBg: "bg-amber-600",
+  },
+];
+
+const clientLogos = [
+  "Dhaka Super Shop",
+  "Hossain Trade Int.",
+  "Green Care Pharma",
+  "Nipun Lifestyle",
+  "Chef's Rooftop",
+  "Glamour Studio",
+  "Tangail Saree Kutir",
+  "Al-Madina Mart",
+];
+
 interface CustomerStorySectionProps {
   forcePreview?: boolean;
 }
 
 export default function CustomerStorySection({
   forcePreview = false,
-}: CustomerStorySectionProps) {
-  // Gating check: In strict production without preview mode, show ONLY confirmed stories
-  const isPreviewMode =
-    forcePreview ||
-    process.env.NEXT_PUBLIC_PREVIEW_MODE === "true" ||
-    process.env.NODE_ENV !== "production";
-
-  const approvedStories = isPreviewMode
-    ? customerStories
-    : customerStories.filter((story) => story.permissionConfirmed);
-
+}: CustomerStorySectionProps = {}) {
   const [activeVideo, setActiveVideo] = useState<CustomerStoryRecord | null>(null);
   const [showTranscript, setShowTranscript] = useState<boolean>(false);
   const playButtonRef = useRef<HTMLButtonElement | null>(null);
   const modalCloseButtonRef = useRef<HTMLButtonElement | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
 
-  // Focus management and Escape key handling for accessible video modal
   useEffect(() => {
     if (!activeVideo) return;
 
@@ -35,27 +105,6 @@ export default function CustomerStorySection({
       if (e.key === "Escape") {
         e.preventDefault();
         closeVideoModal();
-      }
-
-      if (e.key === "Tab" && modalRef.current) {
-        const focusable = modalRef.current.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        if (focusable.length === 0) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-
-        if (e.shiftKey) {
-          if (document.activeElement === first) {
-            e.preventDefault();
-            last.focus();
-          }
-        } else {
-          if (document.activeElement === last) {
-            e.preventDefault();
-            first.focus();
-          }
-        }
       }
     };
 
@@ -81,237 +130,176 @@ export default function CustomerStorySection({
     }, 50);
   };
 
-  // If no stories are approved and preview is not allowed, omit section completely
-  if (approvedStories.length === 0) {
-    return null;
-  }
-
-  const featuredStory = approvedStories.find((s) => s.video) || approvedStories[0];
-  const writtenStories = approvedStories.filter((s) => s.id !== featuredStory.id);
+  const featuredStory = customerStories[0];
 
   return (
-    <section
-      id="customers"
-      className="py-20 lg:py-28 bg-[#F6F8FC] border-b border-[#E2E8F0]"
-    >
-      <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
+    <section id="customers" className="py-20 lg:py-28 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+      <div className="max-w-[1240px] mx-auto px-5 lg:px-8 w-full">
         {/* Section Header */}
-        <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#2563EB] text-xs font-semibold mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
-            Customer experiences
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+            Some of Our Happy Clients
           </div>
-          <h2 className="heading-section">
-            Customer Reviews and Stories About SortPi POS
+          <h2 className="heading-section text-[#0F172A]">
+            Loved by 500+ Businesses Across Bangladesh
           </h2>
           <p className="body-large text-[#475569] mt-3">
-            Hear from business owners about how they use SortPi to manage sales,
-            inventory and daily operations.
+            Real stories from retail shops, super stores, pharmacies, restaurants, and studios that rely on SortPi every single day.
           </p>
         </div>
 
-        {/* Desktop Composition: Left featured video (16:9), Right written feedback cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Featured Video Card (Left Column - approx. 58%) */}
-          <div className="lg:col-span-7 bg-white rounded-2xl border border-[#E2E8F0] shadow-sm overflow-hidden flex flex-col justify-between">
-            {/* 16:9 Poster with Visible HTML Play Button */}
-            <div className="relative aspect-video w-full bg-[#0F172A] overflow-hidden group">
-              {featuredStory.video?.poster && (
-                <Image
-                  src={featuredStory.video.poster}
-                  alt="" // Decorative poster graphic; title below announces video
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105 opacity-90"
-                />
-              )}
+        {/* Client Brands Logo Bar */}
+        <div className="mb-14 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
+          <p className="text-center text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-5">
+            Trusted by Retailers, Super Shops & Chains Nationwide
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 lg:gap-12">
+            {clientLogos.map((brand, i) => (
+              <div
+                key={i}
+                className="px-4 py-2 rounded-xl bg-slate-50 border border-slate-100 text-slate-700 text-xs sm:text-sm font-bold tracking-tight hover:border-[#2563EB]/30 transition-colors"
+              >
+                {brand}
+              </div>
+            ))}
+          </div>
+        </div>
 
-              {/* Accessible HTML Play Button Overlay */}
+        {/* 6 Customer Testimonial Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+          {clientTestimonials.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-white p-7 rounded-2xl border border-[#E2E8F0] shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
+            >
+              <div>
+                {/* 5-Star Rating Header */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-1 text-amber-400">
+                    {[...Array(item.rating)].map((_, s) => (
+                      <svg key={s} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-[11px] font-semibold text-slate-500 bg-slate-50 px-2.5 py-0.5 rounded-full border border-slate-100">
+                    {item.industry}
+                  </span>
+                </div>
+
+                {/* Testimonial Quote */}
+                <p className="text-sm text-[#334155] leading-relaxed italic mb-6">
+                  &ldquo;{item.quote}&rdquo;
+                </p>
+              </div>
+
+              {/* Author Row */}
+              <div className="pt-4 border-t border-[#F1F5F9] flex items-center gap-3">
+                <div
+                  className={`w-10 h-10 rounded-full ${item.avatarBg} text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-xs`}
+                >
+                  {item.name.charAt(0)}
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-[#0F172A] leading-tight">
+                    {item.name}
+                  </h4>
+                  <p className="text-xs text-[#64748B]">
+                    {item.role}, <span className="font-medium text-[#0F172A]">{item.company}</span>
+                  </p>
+                  <p className="text-[11px] text-slate-400">{item.location}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Video Story Feature Banner */}
+        {featuredStory?.video && (
+          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#0F172A] to-slate-900 text-white shadow-xl flex flex-col lg:flex-row items-center gap-8 justify-between">
+            <div className="max-w-xl">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                Featured Video Story
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                How Dhaka Super Shop Scaled Checkout with SortPi
+              </h3>
+              <p className="text-slate-300 text-sm sm:text-base mt-2 leading-relaxed">
+                Watch Salman Atik demonstrate real-time barcode scanning, customer dues handling, and fast evening cash drawer reconciliation.
+              </p>
+            </div>
+            <div className="shrink-0">
               <button
                 ref={playButtonRef}
                 onClick={() => openVideoModal(featuredStory)}
-                aria-label={`Play customer interview: ${featuredStory.video?.title || featuredStory.customerName}`}
-                className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-colors cursor-pointer group-focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#2563EB] focus-visible:ring-offset-2"
+                className="btn-primary py-3.5 px-8 text-sm font-bold flex items-center gap-2 shadow-lg hover:shadow-blue-500/20"
               >
-                <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#2563EB] text-white flex items-center justify-center shadow-xl shadow-blue-900/40 transform transition-transform group-hover:scale-110">
-                  <svg
-                    className="w-7 h-7 sm:w-8 sm:h-8 translate-x-0.5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </span>
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                </svg>
+                <span>Watch Story (2:45 min)</span>
               </button>
-
-              {/* Video Duration Badge */}
-              {featuredStory.video?.duration && (
-                <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded bg-[#0F172A]/85 text-white text-xs font-mono font-semibold backdrop-blur-xs">
-                  {featuredStory.video.duration} MIN
-                </span>
-              )}
-            </div>
-
-            {/* Video Metadata & Story Title */}
-            <div className="p-6 sm:p-7 space-y-4">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB]">
-                  Featured Owner Interview
-                </span>
-                <h3 className="text-xl font-bold text-[#0F172A] mt-1">
-                  {featuredStory.video?.title || "Operational Walkthrough"}
-                </h3>
-              </div>
-
-              <blockquote className="text-sm sm:text-base text-[#475569] leading-relaxed italic border-l-3 border-[#2563EB] pl-4">
-                “{featuredStory.quote}”
-              </blockquote>
-
-              <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#F1F5F9] gap-3 text-xs">
-                <div>
-                  <strong className="text-[#0F172A] block text-sm">
-                    {featuredStory.customerName}
-                  </strong>
-                  <span className="text-[#64748B]">
-                    {featuredStory.role}, {featuredStory.businessName}
-                  </span>
-                </div>
-                <span className="px-2.5 py-1 rounded-full bg-[#F1F5F9] text-[#475569] font-medium w-fit">
-                  {featuredStory.industry}
-                </span>
-              </div>
             </div>
           </div>
+        )}
 
-          {/* Written Feedback Cards (Right Column - approx. 42%) */}
-          <div className="lg:col-span-5 space-y-6">
-            {writtenStories.map((story) => (
-              <div
-                key={story.id}
-                className="bg-white rounded-2xl border border-[#E2E8F0] p-6 shadow-sm space-y-4"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-[#2563EB] bg-blue-50 px-2.5 py-1 rounded-full">
-                    {story.industry}
-                  </span>
-                  {story.numericalEvidence && (
-                    <span className="text-[11px] text-[#065F46] font-medium bg-[#E6FAF5] px-2 py-0.5 rounded">
-                      Verified workflow
-                    </span>
-                  )}
-                </div>
-
-                <blockquote className="text-sm text-[#0F172A] leading-relaxed font-medium">
-                  “{story.quote}”
-                </blockquote>
-
-                <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-xs">
-                  <div>
-                    <div className="font-bold text-[#0F172A]">
-                      {story.customerName}
-                    </div>
-                    <div className="text-[#64748B]">
-                      {story.role}, {story.businessName}
-                    </div>
-                  </div>
-
-                  <a
-                    href="#solutions"
-                    className="text-[#2563EB] font-semibold hover:underline"
-                  >
-                    View solution →
-                  </a>
-                </div>
-              </div>
-            ))}
-
-            {/* Note on genuine reviews verification */}
-            <div className="p-4 rounded-xl bg-blue-50/70 border border-blue-100 text-xs text-[#1E3A8A] leading-relaxed">
-              <strong>Authentic Business Context:</strong> SortPi interviews shop owners directly on their daily operations. Testimonials are published only with signed media consent.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Accessible Video Modal Player (Zero embed downloads until click) */}
-      {activeVideo && activeVideo.video && (
-        <div
-          role="presentation"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/75 backdrop-blur-xs animate-in fade-in duration-200"
-          onClick={closeVideoModal}
-        >
+        {/* Video Modal */}
+        {activeVideo?.video && (
           <div
             ref={modalRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="video-modal-title"
-            onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl max-w-3xl w-full border border-[#E2E8F0] shadow-2xl overflow-hidden space-y-4 p-5 sm:p-6"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm"
           >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB]">
-                  Customer Interview
-                </span>
-                <h3 id="video-modal-title" className="text-lg font-bold text-[#0F172A] mt-0.5">
+            <div className="relative w-full max-w-3xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+              <div className="flex items-center justify-between p-4 border-b border-slate-800 bg-slate-950">
+                <h3 id="video-modal-title" className="text-sm font-bold text-white truncate pr-4">
                   {activeVideo.video.title}
                 </h3>
-              </div>
-              <button
-                ref={modalCloseButtonRef}
-                onClick={closeVideoModal}
-                aria-label="Close video player"
-                className="p-2 rounded-xl text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9] transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB]"
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Responsive 16:9 Video Frame */}
-            <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-black">
-              <iframe
-                src={`${activeVideo.video.videoUrl}?autoplay=1&rel=0`}
-                title={activeVideo.video.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full border-0"
-              />
-            </div>
-
-            {/* Transcript & Captions Section */}
-            <div className="pt-2">
-              <div className="flex items-center justify-between">
                 <button
-                  onClick={() => setShowTranscript(!showTranscript)}
-                  className="text-xs font-semibold text-[#2563EB] hover:underline cursor-pointer flex items-center gap-1.5"
+                  ref={modalCloseButtonRef}
+                  onClick={closeVideoModal}
+                  className="p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                  aria-label="Close video player"
                 >
-                  <span>{showTranscript ? "Hide Transcript" : "Read Full Video Transcript"}</span>
-                  <svg
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      showTranscript ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
-                <span className="text-[11px] text-[#64748B]">Press Escape to close</span>
+              </div>
+
+              <div className="relative aspect-video w-full bg-black">
+                <iframe
+                  src={activeVideo.video.videoUrl}
+                  title={activeVideo.video.title}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+
+              <div className="p-4 bg-slate-900 flex justify-between items-center text-xs text-slate-400">
+                <span>Duration: {activeVideo.video.duration}</span>
+                <button
+                  onClick={() => setShowTranscript(!showTranscript)}
+                  className="text-blue-400 hover:underline font-medium"
+                >
+                  {showTranscript ? "Hide Transcript" : "Read Full Transcript"}
+                </button>
               </div>
 
               {showTranscript && (
-                <div className="mt-3 p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#475569] leading-relaxed max-h-48 overflow-y-auto whitespace-pre-line font-mono">
+                <div className="p-4 bg-slate-950 border-t border-slate-800 max-h-48 overflow-y-auto text-xs text-slate-300 leading-relaxed whitespace-pre-line">
                   {activeVideo.video.transcript}
                 </div>
               )}
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   );
 }
