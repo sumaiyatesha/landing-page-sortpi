@@ -102,15 +102,15 @@ export default function Hero() {
 
           {/* Right Column: Upright Legible Screen with Secondary Illustration Scene (approx. 56% desktop split) */}
           <div className="lg:col-span-7 relative">
-            {/* Secondary Shop Context Illustration with object-fit: contain */}
-            <div className="absolute -inset-4 sm:-inset-6 -z-10 overflow-hidden pointer-events-none rounded-3xl opacity-40 lg:opacity-70">
+            {/* Secondary Shop Context 3D Illustration with object-fit: cover */}
+            <div className="absolute -inset-4 sm:-inset-6 -z-10 overflow-hidden pointer-events-none rounded-3xl opacity-20 lg:opacity-35 mix-blend-multiply">
               <Image
-                src="/assets/hero-shop-scene.svg"
+                src="/assets/hero-pos-counter.jpg"
                 alt="" // Decorative scene props: live HTML below serves as primary focal point
-                width={640}
-                height={520}
+                width={800}
+                height={600}
                 priority
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
               />
             </div>
 

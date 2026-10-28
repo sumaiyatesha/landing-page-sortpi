@@ -25,26 +25,48 @@ export async function generateMetadata({
   };
 }
 
+import { blogPosts } from "@/content/blogPosts";
+
 async function BlogPostContent({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const formattedTitle = slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+  const post = blogPosts.find((p) => p.slug === slug);
+  const formattedTitle = post
+    ? post.title
+    : slug
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
 
   return (
     <article className="prose text-sm text-[#475569] leading-relaxed space-y-4">
-      <h1 className="heading-section text-[#0F172A] mb-4">{formattedTitle}</h1>
-      <div className="text-xs text-[#64748B] mb-8 pb-4 border-b border-[#E2E8F0]">
-        Published by SortPi Editorial Team • GeekSSort
+      <div className="flex items-center gap-3 text-xs text-[#64748B] mb-2">
+        <span className="font-semibold text-[#2563EB] bg-blue-50 px-2.5 py-1 rounded">
+          {post?.category || "Retail Insights"}
+        </span>
+        <span>•</span>
+        <span>{post?.readingTime || "5 min read"}</span>
+        <span>•</span>
+        <span>{post?.publishedAt || "October 2026"}</span>
       </div>
-      <p>
-        This article is part of our ongoing retail insights series helping shop owners across Bangladesh simplify billing, maintain real-time inventory counts, and improve customer dues collections.
-      </p>
+      <h1 className="heading-section text-[#0F172A] mb-4">{formattedTitle}</h1>
+      <div className="text-xs text-[#64748B] mb-6 pb-4 border-b border-[#E2E8F0]">
+        Published by {post?.author || "SortPi Editorial Team"} • GeekSSort
+      </div>
+      {post?.content ? (
+        post.content.map((paragraph, idx) => (
+          <p key={idx} className="text-sm sm:text-base text-[#334155] leading-relaxed mb-4">
+            {paragraph}
+          </p>
+        ))
+      ) : (
+        <p>
+          This article is part of our ongoing retail insights series helping shop owners across Bangladesh simplify billing, maintain real-time inventory counts, and improve customer dues collections.
+        </p>
+      )}
       <div className="p-6 rounded-xl bg-blue-50 border border-blue-200 mt-8">
         <h3 className="text-base font-bold text-[#0F172A] mb-1">
           Want to see SortPi in action for your store?
