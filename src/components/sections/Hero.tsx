@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteSettings } from "@/content/siteSettings";
 import { heroSampleSale } from "@/content/sampleFixtures";
 
@@ -18,7 +19,7 @@ export default function Hero() {
 
       <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Copy & Actions (approx. 44%) */}
+          {/* Left Column: Copy & Actions (approx. 44% desktop split) */}
           <div className="lg:col-span-5 space-y-6">
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F6F8FC] border border-[#E2E8F0] text-xs font-semibold text-[#2563EB]">
@@ -99,10 +100,22 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Upright Legible Reconstructed Screen (approx. 56%) */}
+          {/* Right Column: Upright Legible Screen with Secondary Illustration Scene (approx. 56% desktop split) */}
           <div className="lg:col-span-7 relative">
-            {/* Main Application Device Frame */}
-            <div className="bg-white rounded-2xl border border-[#E2E8F0] shadow-xl shadow-slate-900/8 overflow-hidden">
+            {/* Secondary Shop Context Illustration with object-fit: contain */}
+            <div className="absolute -inset-4 sm:-inset-6 -z-10 overflow-hidden pointer-events-none rounded-3xl opacity-40 lg:opacity-70">
+              <Image
+                src="/assets/hero-shop-scene.svg"
+                alt="" // Decorative scene props: live HTML below serves as primary focal point
+                width={640}
+                height={520}
+                priority
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            {/* Main Application Device Frame (The Focal Point, live HTML) */}
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl border border-[#E2E8F0] shadow-xl shadow-slate-900/10 overflow-hidden">
               {/* Software Header Bar */}
               <div className="bg-[#0F172A] text-white px-4 py-3 flex items-center justify-between border-b border-slate-800">
                 <div className="flex items-center gap-3">

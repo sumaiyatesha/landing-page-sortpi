@@ -4,7 +4,7 @@ export interface FAQItem {
   answer: string;
 }
 
-// Exactly preserved 8 questions and answers from Prompt 6
+// Exactly preserved 8 core questions plus comparison intent guidance
 export const faqs: FAQItem[] = [
   {
     id: "faq-1",
@@ -53,5 +53,11 @@ export const faqs: FAQItem[] = [
     question: "How can I get started?",
     answer:
       "Request a free demo to discuss your business. You can also create an account, add your business and products, and start using the available trial without a card.",
+  },
+  {
+    id: "faq-9",
+    question: "How do I choose the best POS software for my shop?",
+    answer:
+      "Compare the billing, inventory, reporting and branch-management features your business needs, then request a demo to check how the software fits your daily workflow.",
   },
 ];

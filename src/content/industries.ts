@@ -1,7 +1,9 @@
 export interface IndustryOption {
   id: string;
-  name: string;
+  name: string; // Descriptive H3
   tagline: string;
+  benefitParagraph: string; // Exact Prompt benefit copy
+  illustration: string;
   useCase: string;
   capabilities: [string, string, string];
   screenDetail: {
@@ -14,8 +16,11 @@ export interface IndustryOption {
 export const industryOptions: IndustryOption[] = [
   {
     id: "retail",
-    name: "Retail shops",
+    name: "Retail POS Software",
     tagline: "Clothing, electronics, cosmetics & daily goods",
+    benefitParagraph:
+      "Bring billing, customer purchase history and outstanding dues together to manage your retail shop more clearly.",
+    illustration: "/assets/industries/retail.svg",
     useCase:
       "Keep checkout fast at the counter while automatically logging customer purchase history and outstanding balances.",
     capabilities: [
@@ -35,8 +40,11 @@ export const industryOptions: IndustryOption[] = [
   },
   {
     id: "grocery",
-    name: "Super shops and grocery",
+    name: "Grocery and Super Shop POS Software",
     tagline: "High volume daily FMCG & packaged groceries",
+    benefitParagraph:
+      "Track sales, purchases and stock levels to keep daily grocery operations organised.",
+    illustration: "/assets/industries/grocery.svg",
     useCase:
       "Handle thousands of SKUs smoothly, monitor stock deductions across categories, and order before shelves run empty.",
     capabilities: [
@@ -56,8 +64,11 @@ export const industryOptions: IndustryOption[] = [
   },
   {
     id: "restaurant",
-    name: "Restaurants",
+    name: "POS Software for Restaurant Billing",
     tagline: "Cafes, fast food counters & dining points",
+    benefitParagraph:
+      "Keep restaurant sales, billing, expenses and business reports in one place.",
+    illustration: "/assets/industries/restaurant.svg",
     useCase:
       "Focus on quick counter billing, recording daily ingredient expenses, and tracking daily sales income accurately.",
     capabilities: [
@@ -77,8 +88,11 @@ export const industryOptions: IndustryOption[] = [
   },
   {
     id: "pharmacy",
-    name: "Pharmacies",
+    name: "POS Software for Pharmacy Sales and Inventory",
     tagline: "Neighborhood dispensaries & medicine retail",
+    benefitParagraph:
+      "Organise product sales, purchases and stock records for your pharmacy’s daily business operations.",
+    illustration: "/assets/industries/pharmacy.svg",
     useCase:
       "Record general medicine sales quickly, keep product stock accurate, and review fast-moving products.",
     capabilities: [
@@ -98,8 +112,11 @@ export const industryOptions: IndustryOption[] = [
   },
   {
     id: "wholesale",
-    name: "Wholesale",
+    name: "Wholesale POS Software",
     tagline: "Distributors, traders & bulk supply businesses",
+    benefitParagraph:
+      "Manage supplier purchases, customer dues and sales records across your wholesale business.",
+    illustration: "/assets/industries/wholesale.svg",
     useCase:
       "Manage bulk orders, track large supplier purchases, and keep strict records of commercial customer balances.",
     capabilities: [
@@ -119,8 +136,11 @@ export const industryOptions: IndustryOption[] = [
   },
   {
     id: "multibranch",
-    name: "Multi branch businesses",
+    name: "Multi-Branch POS Software",
     tagline: "Retailers with 2 to 10+ operational locations",
+    benefitParagraph:
+      "Review sales, stock and staff records across branches, with individual and combined business views.",
+    illustration: "/assets/industries/multibranch.svg",
     useCase:
       "Maintain separate sales and staff per store while viewing consolidated owner totals and configured branch transfers.",
     capabilities: [

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import CustomerStorySection from "@/components/sections/CustomerStory";
 
 export default function ComponentPreviewPage() {
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -351,6 +352,25 @@ export default function ComponentPreviewPage() {
                 </span>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* 7. Customer Reviews & Video Stories Component Preview */}
+        <section className="bg-white border border-[#E2E8F0] rounded-2xl p-8 shadow-sm">
+          <div className="mb-4">
+            <span className="text-xs font-mono text-[#2563EB] uppercase tracking-wider font-semibold">
+              Component Preview • Customer Feedback & Video Section
+            </span>
+            <h2 className="text-lg font-bold text-[#0F172A] mt-1">
+              7. Customer Reviews & Accessible Video Modal Demo
+            </h2>
+            <p className="text-sm text-[#475569] mt-1">
+              Interactive test for the 16:9 featured customer interview, play button, accessible modal dialog with focus trapping, Escape key handling, and full transcript disclosure.
+            </p>
+          </div>
+
+          <div className="border border-[#E2E8F0] rounded-2xl overflow-hidden">
+            <CustomerStorySection forcePreview={true} />
           </div>
         </section>
       </div>

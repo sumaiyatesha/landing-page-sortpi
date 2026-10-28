@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { industryOptions, IndustryOption } from "@/content/industries";
 
-export default function IndustrySelector() {
+export default function IndustrySolutions() {
   const [selectedIndustry, setSelectedIndustry] = useState<IndustryOption>(
     industryOptions[0]
   );
@@ -15,80 +16,120 @@ export default function IndustrySelector() {
     >
       <div className="max-w-[1200px] mx-auto px-5 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-2xl mb-12">
+        <div className="max-w-3xl mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E6FAF5] text-[#065F46] text-xs font-semibold mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#0AC79E]" />
-            Industry Workflows
+            POS solutions for your business
           </div>
           <h2 className="heading-section">
-            Built around the way your business sells.
+            POS Software for Shops and Growing Businesses in Bangladesh
           </h2>
           <p className="body-large text-[#475569] mt-3">
-            Whether you operate a fast-paced grocery counter, manage fashion retail dues, or oversee multiple outlets, SortPi shapes around your daily routine.
+            Explore how SortPi brings billing, inventory, customer dues and
+            business reports together for your daily operations.
           </p>
         </div>
 
-        {/* 6 Industry Selector Buttons (Visible selection not dependent on color alone) */}
+        {/* 6 Illustrated Cards: Balanced 3-column desktop grid, 2-column tablet, 1-column mobile */}
         <div
           role="tablist"
-          aria-label="Supported Business Types in Bangladesh"
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10"
+          aria-label="SortPi Industry Solutions in Bangladesh"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
         >
           {industryOptions.map((ind) => {
             const isSelected = selectedIndustry.id === ind.id;
             return (
-              <button
+              <div
                 key={ind.id}
-                role="tab"
-                id={`ind-tab-${ind.id}`}
-                aria-selected={isSelected}
-                aria-controls={`ind-panel-${ind.id}`}
-                onClick={() => setSelectedIndustry(ind)}
-                className={`p-3.5 rounded-xl text-left border transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[96px] ${
+                className={`group rounded-2xl border p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 ${
                   isSelected
-                    ? "bg-[#F8FAFC] border-[#2563EB] shadow-xs ring-2 ring-[#2563EB]/15"
-                    : "bg-white border-[#E2E8F0] hover:border-[#CBD5E1] hover:bg-[#F8FAFC]/50 text-[#475569]"
+                    ? "bg-[#F8FAFC] border-[#2563EB] shadow-md ring-2 ring-[#2563EB]/15"
+                    : "bg-white border-[#E2E8F0] hover:border-[#CBD5E1] hover:shadow-sm"
                 }`}
               >
-                <div className="flex items-center justify-between">
-                  <span
-                    className={`w-2 h-2 rounded-full ${
-                      isSelected ? "bg-[#2563EB]" : "bg-slate-300"
+                <div>
+                  {/* Matching 3D Industry Illustration (640x640 Master) */}
+                  <div className="w-full h-44 sm:h-48 mb-5 flex items-center justify-center rounded-xl bg-slate-50/70 p-4 transition-transform duration-200 group-hover:scale-[1.02]">
+                    <Image
+                      src={ind.illustration}
+                      alt="" // Decorative: adjacent H3 communicates meaning
+                      width={180}
+                      height={180}
+                      className="max-h-full w-auto object-contain drop-shadow-sm"
+                    />
+                  </div>
+
+                  {/* Descriptive H3 */}
+                  <h3 className="text-xl font-bold text-[#0F172A] leading-snug">
+                    {ind.name}
+                  </h3>
+
+                  {/* Short Benefit Paragraph */}
+                  <p className="text-sm text-[#475569] mt-2.5 leading-relaxed">
+                    {ind.benefitParagraph}
+                  </p>
+                </div>
+
+                {/* Accessible "Explore this solution" Control */}
+                <div className="pt-6 mt-4 border-t border-[#F1F5F9] flex items-center justify-between">
+                  <button
+                    role="tab"
+                    id={`ind-tab-${ind.id}`}
+                    aria-selected={isSelected}
+                    aria-controls={`ind-panel-${ind.id}`}
+                    onClick={() => {
+                      setSelectedIndustry(ind);
+                      // Smooth scroll down to detail panel if needed on small screens
+                      const panel = document.getElementById("industry-detail-panel");
+                      if (panel && window.innerWidth < 768) {
+                        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
+                    }}
+                    className={`inline-flex items-center gap-2 text-sm font-semibold rounded-lg py-2 px-3 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563EB] ${
+                      isSelected
+                        ? "text-[#2563EB] bg-blue-50 font-bold"
+                        : "text-[#0F172A] hover:text-[#2563EB] hover:bg-slate-50"
                     }`}
-                    aria-hidden="true"
-                  />
+                  >
+                    <span>{isSelected ? "Active workflow view" : "Explore this solution"}</span>
+                    <svg
+                      aria-hidden="true"
+                      className={`w-4 h-4 transition-transform duration-200 ${
+                        isSelected ? "translate-x-0.5 text-[#2563EB]" : "text-slate-400 group-hover:text-[#2563EB]"
+                      }`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+
                   {isSelected && (
-                    <span className="text-[10px] font-bold text-[#2563EB] uppercase tracking-wider">
-                      Active
+                    <span className="text-[11px] font-bold text-[#065F46] bg-[#E6FAF5] px-2.5 py-1 rounded-full uppercase tracking-wider">
+                      Selected
                     </span>
                   )}
                 </div>
-                <div>
-                  <div className="text-sm font-bold text-[#0F172A] leading-tight">
-                    {ind.name}
-                  </div>
-                  <div className="text-[11px] text-[#64748B] mt-0.5 line-clamp-1">
-                    {ind.tagline}
-                  </div>
-                </div>
-              </button>
+              </div>
             );
           })}
         </div>
 
-        {/* Dynamic Detail Card with Accessible Live Region */}
+        {/* Compact Detail Panel Revealed Beneath Grid */}
         <div
-          id={`ind-panel-${selectedIndustry.id}`}
+          id="industry-detail-panel"
           role="tabpanel"
           aria-labelledby={`ind-tab-${selectedIndustry.id}`}
           aria-live="polite"
-          className="bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] p-6 lg:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+          className="bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] p-6 lg:p-10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
         >
-          {/* Left: Use Case & 3 Confirmed Capabilities */}
+          {/* Left: Selected Business Type & 3 Verified Capabilities */}
           <div className="lg:col-span-7 space-y-6">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#2563EB] mb-2">
-                <span>Selected Sector</span>
+                <span>Selected Solution</span>
                 <span>•</span>
                 <span>{selectedIndustry.name}</span>
               </div>
@@ -102,7 +143,7 @@ export default function IndustrySelector() {
 
             <div className="space-y-3 pt-2">
               <span className="text-xs uppercase tracking-wider font-semibold text-[#64748B]">
-                Key Capabilities for this Business:
+                Verified Relevant Capabilities:
               </span>
               <ul className="space-y-2.5">
                 {selectedIndustry.capabilities.map((cap, i) => (
@@ -136,21 +177,35 @@ export default function IndustrySelector() {
                 href={`/#demo?industry=${encodeURIComponent(
                   selectedIndustry.name
                 )}`}
-                className="btn-primary text-sm min-h-[44px]"
+                className="btn-primary text-sm min-h-[48px]"
               >
-                <span>Request {selectedIndustry.name} Demo</span>
+                <span>Request Free Demo</span>
+                <svg
+                  aria-hidden="true"
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                  />
+                </svg>
               </a>
 
               <a
                 href="#features"
                 className="text-xs font-semibold text-[#2563EB] hover:underline"
               >
-                Explore all core features →
+                Compare against all 10 core features →
               </a>
             </div>
           </div>
 
-          {/* Right: Focused Sample Screen Preview */}
+          {/* Right: Corresponding Product UI Preview Panel */}
           <div className="lg:col-span-5 bg-white rounded-xl border border-[#E2E8F0] p-6 shadow-sm space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
               <span className="text-xs font-semibold text-[#64748B]">
@@ -180,19 +235,6 @@ export default function IndustrySelector() {
               Tailored workflow demonstration • No unconfirmed third-party integrations
             </div>
           </div>
-        </div>
-
-        {/* Module Link to Focus #features */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-[#475569]">
-            Looking for complete inventory management, dues tracking, or multi-branch features?{" "}
-            <a
-              href="#features"
-              className="text-[#2563EB] font-semibold hover:underline"
-            >
-              See all 10 core SortPi modules in detail ↓
-            </a>
-          </p>
         </div>
       </div>
     </section>

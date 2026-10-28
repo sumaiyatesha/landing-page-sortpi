@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" fill="none" width="100%" height="100%">
+  <defs>
+    <!-- Matte 3D Gradients with Upper-left lighting -->
+    <linearGradient id="roofMainGrad" x1="180" y1="120" x2="380" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="roofBranchGrad" x1="80" y1="220" x2="220" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="storeWallFront" x1="160" y1="260" x2="160" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <linearGradient id="storeWallSide" x1="380" y1="260" x2="480" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+    <filter id="softShadow3DMulti" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#0F172A" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Ground Shadows for 3 Outlets -->
+  <ellipse cx="320" cy="535" rx="230" ry="42" fill="#0F172A" opacity="0.08"/>
+
+  <!-- Network Interconnection Light Pathways (Connecting the 3 Outlets) -->
+  <g>
+    <!-- Pathway Hub to Left Storefront -->
+    <path d="M320 450 L180 470" stroke="#2563EB" stroke-width="4" stroke-dasharray="8 6" opacity="0.8"/>
+    <!-- Pathway Hub to Right Storefront -->
+    <path d="M320 450 L460 470" stroke="#2563EB" stroke-width="4" stroke-dasharray="8 6" opacity="0.8"/>
+    <!-- Central Live Sync Beacon -->
+    <circle cx="320" cy="450" r="10" fill="#0AC79E" filter="url(#softShadow3DMulti)"/>
+    <circle cx="320" cy="450" r="4" fill="#FFFFFF"/>
+  </g>
+
+  <!-- STOREFRONT 1: Left Branch Outlet -->
+  <g transform="translate(60, 240)" filter="url(#softShadow3DMulti)">
+    <!-- Awning / Roof Canopy -->
+    <path d="M20 50 L100 15 L160 45 L80 80 Z" fill="url(#roofBranchGrad)"/>
+    <!-- Store Front Wall -->
+    <path d="M20 50 L80 80 L80 180 L20 150 Z" fill="url(#storeWallFront)"/>
+    <!-- Store Side Wall -->
+    <path d="M80 80 L160 45 L160 145 L80 180 Z" fill="url(#storeWallSide)"/>
+
+    <!-- Display Window & Door -->
+    <path d="M32 75 L68 93 L68 150 L32 132 Z" fill="#0F172A"/>
+    <path d="M36 80 L64 94 L64 125 L36 111 Z" fill="#93C5FD" opacity="0.7"/>
+
+    <!-- Branch 02 Label -->
+    <rect x="28" y="55" width="45" height="12" rx="3" fill="#1E293B"/>
+    <text x="50" y="64" font-family="system-ui, sans-serif" font-size="7" font-weight="bold" fill="#0AC79E" text-anchor="middle">BRANCH 2</text>
+  </g>
+
+  <!-- STOREFRONT 2: Right Branch Outlet -->
+  <g transform="translate(420, 240)" filter="url(#softShadow3DMulti)">
+    <!-- Awning / Roof Canopy -->
+    <path d="M20 50 L100 15 L160 45 L80 80 Z" fill="url(#roofBranchGrad)"/>
+    <!-- Store Front Wall -->
+    <path d="M20 50 L80 80 L80 180 L20 150 Z" fill="url(#storeWallFront)"/>
+    <!-- Store Side Wall -->
+    <path d="M80 80 L160 45 L160 145 L80 180 Z" fill="url(#storeWallSide)"/>
+
+    <!-- Display Window & Door -->
+    <path d="M32 75 L68 93 L68 150 L32 132 Z" fill="#0F172A"/>
+    <path d="M36 80 L64 94 L64 125 L36 111 Z" fill="#93C5FD" opacity="0.7"/>
+
+    <!-- Branch 03 Label -->
+    <rect x="28" y="55" width="45" height="12" rx="3" fill="#1E293B"/>
+    <text x="50" y="64" font-family="system-ui, sans-serif" font-size="7" font-weight="bold" fill="#0AC79E" text-anchor="middle">BRANCH 3</text>
+  </g>
+
+  <!-- STOREFRONT 3: Main Central Hub (Taller, Prominent HQ Store) -->
+  <g transform="translate(220, 140)" filter="url(#softShadow3DMulti)">
+    <!-- 3D Pitched Roof / Awning -->
+    <path d="M25 65 L115 15 L195 55 L105 105 Z" fill="url(#roofMainGrad)"/>
+    <!-- Roof Overhang Edge Strip -->
+    <path d="M25 65 L105 105 L195 55 L195 62 L105 112 L25 72 Z" fill="#1E40AF"/>
+
+    <!-- Central Store Front Wall -->
+    <path d="M25 72 L105 112 L105 260 L25 220 Z" fill="url(#storeWallFront)"/>
+    <!-- Central Store Side Wall -->
+    <path d="M105 112 L195 62 L195 210 L105 260 Z" fill="url(#storeWallSide)"/>
+
+    <!-- Main Store Entrance (Double Doors) -->
+    <path d="M42 125 L92 150 L92 245 L42 220 Z" fill="#0F172A"/>
+    <path d="M48 132 L86 151 L86 210 L48 191 Z" fill="#60A5FA" opacity="0.85"/>
+    <line x1="67" y1="142" x2="67" y2="232" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- SortPi HQ Fascia Sign -->
+    <g transform="translate(35, 78)">
+      <path d="M5 25 L65 0 L145 35 L85 60 Z" fill="#1E293B"/>
+      <text x="75" y="42" font-family="system-ui, sans-serif" font-size="11" font-weight="900" fill="#FFFFFF" text-anchor="middle">SortPi HQ</text>
+      <circle cx="28" cy="38" r="3" fill="#0AC79E"/>
+    </g>
+
+    <!-- Branch 01 Indicator -->
+    <rect x="45" y="112" width="42" height="10" rx="2" fill="#E6FAF5"/>
+    <text x="66" y="120" font-family="system-ui, sans-serif" font-size="6" font-weight="bold" fill="#065F46" text-anchor="middle">CENTRAL 01</text>
+  </g>
+
+  <!-- Stock Transfer In-Transit Badge Floating Overhead -->
+  <g transform="translate(320, 80)" filter="url(#softShadow3DMulti)">
+    <rect width="130" height="34" rx="17" fill="#0F172A" stroke="#2563EB" stroke-width="2"/>
+    <circle cx="20" cy="17" r="5" fill="#0AC79E"/>
+    <text x="32" y="21" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#FFFFFF">Branch Sync</text>
+  </g>
+</svg>

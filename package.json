@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "validate": "node scripts/validate-release.mjs",
+    "check:secrets": "node scripts/check-staged-secrets.mjs",
     "test:api": "node scripts/test-endpoints.mjs"
   },
   "dependencies": {

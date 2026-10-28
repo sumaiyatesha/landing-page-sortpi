@@ -26,14 +26,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "POS Software in Bangladesh for Shops | SortPi",
   description:
-    "Manage sales, stock, customer dues, expenses and multiple branches with SortPi POS software in Bangladesh. Request a free demo for your business.",
+    "Manage billing, inventory, customer dues and multiple branches with SortPi POS software in Bangladesh. Explore features and request a free demo.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "POS Software in Bangladesh for Shops | SortPi",
     description:
-      "Manage sales, stock, customer dues, expenses and multiple branches with SortPi POS software in Bangladesh. Request a free demo for your business.",
+      "Manage billing, inventory, customer dues and multiple branches with SortPi POS software in Bangladesh. Explore features and request a free demo.",
     url: siteUrl,
     siteName: "SortPi",
     locale: "en_BD",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "POS Software in Bangladesh for Shops | SortPi",
     description:
-      "Manage sales, stock, customer dues, expenses and multiple branches with SortPi POS software in Bangladesh. Request a free demo for your business.",
+      "Manage billing, inventory, customer dues and multiple branches with SortPi POS software in Bangladesh. Explore features and request a free demo.",
     images: ["/og.png"],
   },
   robots: isPreview

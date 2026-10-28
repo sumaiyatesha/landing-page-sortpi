@@ -22,13 +22,26 @@ export default function DemoContactForm({
   const [phoneNumber, setPhoneNumber] = useState("");
   const [businessName, setBusinessName] = useState("");
   const [businessType, setBusinessType] = useState(
-    () => initialIndustry || "Retail shops"
+    () => initialIndustry || "Retail POS Software"
   );
   const [branchesCount, setBranchesCount] = useState("1");
   const [email, setEmail] = useState("");
   const [note, setNote] = useState("");
   const [selectedPlan, setSelectedPlan] = useState(() => initialPlan || "");
   const [showNoteField, setShowNoteField] = useState(false);
+
+  // Sync state when URL search params change (e.g. from industry selector or pricing buttons)
+  React.useEffect(() => {
+    if (initialIndustry) {
+      setBusinessType(initialIndustry);
+    }
+  }, [initialIndustry]);
+
+  React.useEffect(() => {
+    if (initialPlan) {
+      setSelectedPlan(initialPlan);
+    }
+  }, [initialPlan]);
 
   // Honeypot field for bot protection
   const [websiteUrl, setWebsiteUrl] = useState("");
@@ -376,12 +389,12 @@ export default function DemoContactForm({
             onChange={(e) => setBusinessType(e.target.value)}
             className="form-input cursor-pointer"
           >
-            <option value="Retail shops">Retail shops (Clothing, Electronics, Goods)</option>
-            <option value="Super shops and grocery">Super shops and grocery</option>
-            <option value="Restaurants">Restaurants & Cafes</option>
-            <option value="Pharmacies">Pharmacies & Medicine counters</option>
-            <option value="Wholesale">Wholesale & Bulk Trade</option>
-            <option value="Multi branch businesses">Multi branch businesses</option>
+            <option value="Retail POS Software">Retail POS Software (Clothing, Electronics, Cosmetics)</option>
+            <option value="Grocery and Super Shop POS Software">Grocery and Super Shop POS Software</option>
+            <option value="POS Software for Restaurant Billing">POS Software for Restaurant Billing</option>
+            <option value="POS Software for Pharmacy Sales and Inventory">POS Software for Pharmacy Sales and Inventory</option>
+            <option value="Wholesale POS Software">Wholesale POS Software</option>
+            <option value="Multi-Branch POS Software">Multi-Branch POS Software</option>
             <option value="Other">Other Retail Business</option>
           </select>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 import DemoContactForm from "@/components/forms/DemoContactForm";
@@ -33,7 +34,7 @@ export default function ContactPage() {
           </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-            {/* Left: Contact Info & Cards */}
+            {/* Left: Contact Info, Artwork Scene & Verified Cards */}
             <div className="lg:col-span-5 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#2563EB] text-xs font-semibold">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
@@ -48,6 +49,17 @@ export default function ContactPage() {
                 Have a question about features, pricing or your shop’s workflow? Talk to the SortPi team.
               </p>
 
+              {/* Original Product Themed Contact Illustration Scene */}
+              <div className="rounded-2xl overflow-hidden border border-[#E2E8F0] bg-white p-3 shadow-xs">
+                <Image
+                  src="/assets/contact-support-scene.svg"
+                  alt="" // Decorative: contact details are provided in live HTML cards below
+                  width={480}
+                  height={380}
+                  className="w-full h-auto object-contain rounded-xl"
+                />
+              </div>
+
               {/* Primary Demo Link */}
               <div className="p-4 rounded-xl bg-blue-50/80 border border-blue-200 text-xs text-[#1E3A8A] flex items-center justify-between">
                 <span>Looking for an interactive walkthrough?</span>
@@ -59,7 +71,7 @@ export default function ContactPage() {
                 </Link>
               </div>
 
-              {/* Two Direct Contact Cards */}
+              {/* Exactly Two Direct Contact Cards (Phone & Email only, until genuine office details are provided) */}
               <div className="space-y-4 pt-2">
                 {/* Phone Card */}
                 <div className="bg-white p-5 rounded-2xl border border-[#E2E8F0] shadow-xs flex items-start gap-4">
@@ -107,19 +119,9 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-
-              {/* Office Location Notice */}
-              <div className="p-4 bg-white rounded-xl border border-[#E2E8F0] text-xs text-[#64748B]">
-                <strong className="text-[#0F172A] block mb-1">
-                  Dhaka Operations Office:
-                </strong>
-                <span>
-                  GeekSSort Development Hub, Dhaka, Bangladesh. Visits by prior appointment.
-                </span>
-              </div>
             </div>
 
-            {/* Right: Enquiry Form */}
+            {/* Right: Enquiry Form (Full width within its column, concise explanation) */}
             <div className="lg:col-span-7">
               <div className="text-xs font-mono uppercase tracking-wider text-[#64748B] mb-2 px-1">
                 Direct Message to SortPi Team

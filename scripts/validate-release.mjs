@@ -105,6 +105,16 @@ const requiredFiles = [
   "src/app/sitemap.ts",
   "public/og.png",
   ".env.example",
+  "src/content/assetManifest.ts",
+  "public/assets/hero-shop-scene.svg",
+  "public/assets/industries/retail.svg",
+  "public/assets/industries/grocery.svg",
+  "public/assets/industries/restaurant.svg",
+  "public/assets/industries/pharmacy.svg",
+  "public/assets/industries/wholesale.svg",
+  "public/assets/industries/multibranch.svg",
+  "public/assets/contact-support-scene.svg",
+  "public/assets/salman-atik-poster.svg",
 ];
 
 for (const file of requiredFiles) {
