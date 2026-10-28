@@ -28,7 +28,7 @@ export default function DemoContactForm({
   const [email, setEmail] = useState("");
   const [note, setNote] = useState("");
   const [selectedPlan, setSelectedPlan] = useState(() => initialPlan || "");
-  const [showNoteField, setShowNoteField] = useState(false);
+  const [showNoteField, setShowNoteField] = useState(() => intent === "contact");
 
   // Sync state when URL search params change (e.g. from industry selector or pricing buttons)
   React.useEffect(() => {
@@ -81,6 +81,10 @@ export default function DemoContactForm({
       if (!emailRegex.test(email.trim())) {
         errs.email = "Please enter a valid email address.";
       }
+    }
+
+    if (intent === "contact" && !note.trim()) {
+      errs.note = "Please enter your message or question.";
     }
 
     setErrors(errs);
@@ -455,9 +459,9 @@ export default function DemoContactForm({
         </div>
       </div>
 
-      {/* Optional Collapsed Note / Context field */}
+      {/* Optional Collapsed Note for Demo, Required Message field for Contact */}
       <div>
-        {!showNoteField ? (
+        {!showNoteField && intent !== "contact" ? (
           <button
             type="button"
             onClick={() => setShowNoteField(true)}
@@ -471,17 +475,38 @@ export default function DemoContactForm({
               htmlFor="note"
               className="block text-sm font-semibold text-[#0F172A] mb-1.5"
             >
-              Note or workflow question <span className="text-xs text-[#64748B] font-normal">(Optional)</span>
+              {intent === "contact" ? "Message" : "Note or workflow question"}{" "}
+              {intent === "contact" ? (
+                <span className="text-[#2563EB]">*</span>
+              ) : (
+                <span className="text-xs text-[#64748B] font-normal">(Optional)</span>
+              )}
             </label>
             <textarea
               id="note"
               name="note"
-              rows={3}
-              placeholder="Tell us about specific items, registers, or questions you have..."
+              rows={intent === "contact" ? 4 : 3}
+              placeholder={
+                intent === "contact"
+                  ? "How can our team help your business? (e.g. branch setup, pricing, feature questions)"
+                  : "Tell us about specific items, registers, or questions you have..."
+              }
               value={note}
-              onChange={(e) => setNote(e.target.value)}
-              className="form-input min-h-[80px]"
+              onChange={(e) => {
+                setNote(e.target.value);
+                if (errors.note) {
+                  setErrors((prev) => ({ ...prev, note: "" }));
+                }
+              }}
+              className={`form-input min-h-[80px] ${errors.note ? "is-invalid" : ""}`}
+              aria-invalid={!!errors.note}
+              aria-describedby={errors.note ? "note-error" : undefined}
             />
+            {errors.note && (
+              <p id="note-error" className="text-xs text-[#E11D48] font-medium mt-1">
+                {errors.note}
+              </p>
+            )}
           </div>
         )}
       </div>

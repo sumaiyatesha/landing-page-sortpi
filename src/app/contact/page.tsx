@@ -114,7 +114,7 @@ export default function ContactPage() {
                       {siteSettings.contact.email}
                     </a>
                     <span className="text-xs text-[#64748B] mt-0.5 block">
-                      Guaranteed response within one business day
+                      Direct enquiries to GeekSSort development team
                     </span>
                   </div>
                 </div>

@@ -6,6 +6,26 @@ const ipRequestHistory = new Map<string, number[]>();
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
 const MAX_REQUESTS_PER_WINDOW = 15; // Generous for local development/testing
 
+// Idempotency cache to prevent duplicate rapid submissions (60 second window)
+const recentSubmissions = new Map<string, number>();
+const IDEMPOTENCY_WINDOW_MS = 60 * 1000;
+
+function isDuplicateSubmission(key: string): boolean {
+  const now = Date.now();
+  const lastTime = recentSubmissions.get(key);
+  if (lastTime && now - lastTime < IDEMPOTENCY_WINDOW_MS) {
+    return true;
+  }
+  recentSubmissions.set(key, now);
+  // Housekeeping: remove old keys
+  for (const [k, time] of recentSubmissions.entries()) {
+    if (now - time > IDEMPOTENCY_WINDOW_MS) {
+      recentSubmissions.delete(k);
+    }
+  }
+  return false;
+}
+
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
   const timestamps = ipRequestHistory.get(ip) || [];
@@ -93,6 +113,15 @@ export async function POST(req: NextRequest) {
         { success: false, error: phoneResult.error || "Invalid Bangladeshi phone number." },
         { status: 400 }
       );
+    }
+
+    // 4b. Idempotency Check: Prevent duplicate rapid requests
+    const idempotencyKey = `${clientIp}:${phoneResult.normalized}:${businessName.trim().toLowerCase()}`;
+    if (isDuplicateSubmission(idempotencyKey)) {
+      return NextResponse.json({
+        success: true,
+        message: "Your request has been received. The SortPi team will contact you using the details you provided.",
+      });
     }
 
     // 5. Optional Email validation
